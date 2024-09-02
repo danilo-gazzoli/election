@@ -1,3 +1,4 @@
 .vscode/
 .src/application/
 .src/core/interfaces
+.mypy.ini
