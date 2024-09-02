@@ -1,12 +1,5 @@
+from core.entities.data_classes import VoterData, VoteData
 from dataclasses import dataclass;
-
-class VoterData:
-    name: str;
-    cardNumber: int;
-
-class VoteData:
-    voteNumber: int;
-    votePermission: bool;
 
 class Voter:
     def __init__(self, voter_data: VoterData, vote_data: VoteData):
