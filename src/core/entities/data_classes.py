@@ -7,9 +7,10 @@ class VoterData:
     
 @dataclass    
 class CandidateData(VoterData):
-    candidateNumer: int;
+    candidateID: int;
+    candidateNumber: int;
     politicalParty: str;
-    typePosition: str;
+    politicalPosition: str;
     profilePicture: str; # swap to image type
     
 @dataclass
