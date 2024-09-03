@@ -11,11 +11,13 @@ class CandidateData(VoterData):
     candidateNumber: int;
     politicalParty: str;
     politicalPosition: str;
+    amountVotes: int;
     profilePicture: str; # swap to image type
     
 @dataclass
 class VoteData:
     voteNumber: int;
-    voteType: str;
+    voteNull: int;
+    voteNone: int;
     votePosition: str;
     votePermission: bool;

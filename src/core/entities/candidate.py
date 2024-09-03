@@ -8,4 +8,5 @@ class Candidate(Voter):
         self.candidateID = candidate_data.candidateID;
         self.profilePicture = candidate_data.profilePicture;
         self.politicalParty = candidate_data.politicalParty;
+        self.amountVote = candidate_data.amountVotes;
         self.politicalPosition = candidate_data.politicalPosition;

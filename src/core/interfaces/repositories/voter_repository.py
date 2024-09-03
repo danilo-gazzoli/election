@@ -4,14 +4,14 @@ from typing import Optional, List;
 
 
 class IVoterRepository(ABC):
+    
+    # get voter
     @abstractmethod
     def GetVoterbyCardNumber(self, voter_cardNumber: int) -> Optional[Voter]:
-        pass
+        pass;
     
     @abstractmethod
     def GetVoterbyName(self, user_name: str) -> Optional[Voter]:
-        pass
+        pass;
     
-    @abstractmethod
-    def GetVoterbyVoteType(self, vote_type: str) -> List[Voter]:
-        pass
+    

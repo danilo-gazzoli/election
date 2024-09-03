@@ -8,4 +8,5 @@ class Voter:
         self.voteNumber = vote_data.voteNumber;
         self.votePermission = vote_data.votePermission;
         self.votePosition = vote_data.votePosition;
-        self.voteType = vote_data.voteType;
+        self.voteNone = vote_data.voteNone;
+        self.voteNull = vote_data.voteNull;
