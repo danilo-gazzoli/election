@@ -5,6 +5,10 @@ from typing import Optional, List;
 
 class IUserRepository(ABC):
     
+    # create users
+    @abstractmethod
+    def CreateUser(self, ):
+        pass
     # get users
     @abstractmethod
     def GetUserbyID(self, user_id: int) -> Optional[User]:
