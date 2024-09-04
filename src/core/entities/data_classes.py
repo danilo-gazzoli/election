@@ -21,3 +21,9 @@ class VoteData:
     voteNone: int;
     votePosition: str;
     votePermission: bool;
+    
+@dataclass
+class UserData:
+    name: str;
+    email: str;
+    password: str;
