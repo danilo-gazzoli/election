@@ -13,20 +13,21 @@ class ICandidateRepository(ABC):
     def GetCandidatebyName(self, candidate_name: str) -> Optional[Candidate]:
         pass;
     
+    
     @abstractmethod
     def GetCandidatebyCandidateNumber(self, candidate_number: int) -> Optional[Candidate]:
         pass;
     
     @abstractmethod
-    def GetCandidatebyPoliticalParty(self, political_party: str) -> List[Candidate]:
+    def GetCandidatesbyPoliticalParty(self, political_party: str) -> List[Candidate]:
         pass;
     
     @abstractmethod
-    def GetCandidatebyPoliticalPosition(self, political_position: str) -> List[Candidate]:
+    def GetCandidatesbyPoliticalPosition(self, political_position: str) -> List[Candidate]:
         pass;
     
     @abstractmethod
-    def GetCandidatebyAmountVotes(self, amount_votes: int) -> List[Candidate]:
+    def GetCandidatesbyAmountVotes(self, amount_votes: int) -> List[Candidate]:
         pass;
     
     @abstractmethod
