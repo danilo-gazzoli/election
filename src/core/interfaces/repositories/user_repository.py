@@ -7,7 +7,7 @@ class IUserRepository(ABC):
     
     # create users
     @abstractmethod
-    def CreateUser(self, ):
+    def CreateUser(self, user_id: int, user_name: str, user_email: str, user_password: int):
         pass
     # get users
     @abstractmethod
@@ -22,6 +22,7 @@ class IUserRepository(ABC):
     def GetUserbyEmail(self, user_email: str) -> Optional[User]:
         pass;
     
+    @abstractmethod
     def GetListUsers(self) -> List[User]:
         pass;
     
