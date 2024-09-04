@@ -1,4 +1,4 @@
-from core.entities.data_classes import *;
+from core.entities.data_classes import VoterData, VoteData, CandidateData;
 from core.entities.voter import Voter;
 
 class Candidate(Voter):
