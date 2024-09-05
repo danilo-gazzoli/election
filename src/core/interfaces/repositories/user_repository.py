@@ -1,3 +1,4 @@
+from core.entities.data_classes import DataUser;
 from abc import ABC, abstractmethod;
 from core.entities.user import User;
 from typing import Optional, List;
@@ -7,7 +8,7 @@ class IUserRepository(ABC):
     
     # create users
     @abstractmethod
-    def CreateUser(self, user_id: int, user_name: str, user_email: str, user_password: int):
+    def CreateUser(self, user_data: DataUser):
         pass
     # get users
     @abstractmethod
