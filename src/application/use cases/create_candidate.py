@@ -25,7 +25,7 @@ class CreateCandidate:
         
         new_candidate = Candidate(id=None, cardNumber=cardNumber, name=name, candidateNumber=candidateNumber, politicalParty=politicalParty, politicalPosition=politicalPosition);
         
-        self.candidate_repository.AddCandidate(new_candidate);
+        self.candidate_repository.CreateCandidate(new_candidate);
         
         return new_candidate;
         

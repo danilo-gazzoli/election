@@ -6,32 +6,7 @@ class ICandidateRepository(ABC):
     
     # create candidates
     @abstractmethod
-    def AddCandidate(self, candidate: Candidate) -> None:
-        pass;
-    
-    # update candidates
-    @abstractmethod
-    def UpdateCandidate(self, candidate: Candidate) -> None:
-        pass;
-    
-    @abstractmethod
-    def UpdateCandidateCardNumber(self, candidate_cardNumber: int) -> None:
-        pass;
-    
-    @abstractmethod
-    def UpdateCandidateName(self, candidate_name: str) -> None:
-        pass;
-    
-    @abstractmethod
-    def UpdateCandidateNumber(self, candidate_number: int) -> None:
-        pass;
-    
-    @abstractmethod
-    def UpdateCandidatePoliticalParty(self, political_party: str) -> None:
-        pass;
-    
-    @abstractmethod
-    def UpdateCandidatePoliticalPosition(self, political_position: str) -> None:
+    def CreateCandidate(self, candidate: Candidate) -> None:
         pass;
     
     # read/get candidates
@@ -61,6 +36,31 @@ class ICandidateRepository(ABC):
     
     @abstractmethod
     def GetListCandidates(self) -> List[Candidate]:
+        pass;
+    
+    # update candidates
+    @abstractmethod
+    def UpdateCandidate(self, candidate: Candidate) -> None:
+        pass;
+    
+    @abstractmethod
+    def UpdateCandidateCardNumber(self, candidate_cardNumber: int) -> None:
+        pass;
+    
+    @abstractmethod
+    def UpdateCandidateName(self, candidate_name: str) -> None:
+        pass;
+    
+    @abstractmethod
+    def UpdateCandidateNumber(self, candidate_number: int) -> None:
+        pass;
+    
+    @abstractmethod
+    def UpdateCandidatePoliticalParty(self, political_party: str) -> None:
+        pass;
+    
+    @abstractmethod
+    def UpdateCandidatePoliticalPosition(self, political_position: str) -> None:
         pass;
     
     # Delete/remove candidate
