@@ -1,8 +1,8 @@
-from core.entities.data_classes import VoterData, VoteData, CandidateData;
+from core.entities.data_classes import DataVoter, DataVote, DataCandidate;
 from core.entities.voter import Voter;
 
 class Candidate(Voter):
-    def __init__(self, voter_data: VoterData, vote_data: VoteData, candidate_data: CandidateData):
+    def __init__(self, voter_data: DataVoter, vote_data: DataVote, candidate_data: DataCandidate):
         super().__init__(voter_data, vote_data, vote_data);
         self.candidateNumber = candidate_data.candidateNumber;
         self.candidateID = candidate_data.candidateID;

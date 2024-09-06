@@ -1,8 +1,8 @@
-from core.entities.data_classes import VoterData, VoteData
+from core.entities.data_classes import DataVoter, DataVote
 from dataclasses import dataclass;
 
 class Voter:
-    def __init__(self, voter_data: VoterData, vote_data: VoteData):
+    def __init__(self, voter_data: DataVoter, vote_data: DataVote):
         self.cardNumber = voter_data.cardNumber;
         self.name = voter_data.name;
         self.voteNumber = vote_data.voteNumber;

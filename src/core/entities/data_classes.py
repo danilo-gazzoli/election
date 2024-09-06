@@ -8,12 +8,12 @@ from typing import List;
 from PIL import Image;
 
 @dataclass
-class VoterData:
+class DataVoter:
     name: str;
     cardNumber: int;
     
 @dataclass    
-class CandidateData(VoterData):
+class DataCandidate(DataVoter):
     candidateID: int;
     candidateNumber: int;
     politicalParty: str;
@@ -22,7 +22,7 @@ class CandidateData(VoterData):
     profilePicture: Image;
     
 @dataclass
-class VoteData:
+class DataVote:
     voteNumber: int;
     voteNull: int;
     voteNone: int;
@@ -30,7 +30,7 @@ class VoteData:
     votePermission: bool;
     
 @dataclass
-class UserData:
+class DataUser:
     id: int;
     name: str;
     email: str;
@@ -57,3 +57,4 @@ class DataElection:
     politicalCandidates: List[Candidate];
     politicalPartys: List[PoliticalParty];
     voters: List[Voter];
+    
