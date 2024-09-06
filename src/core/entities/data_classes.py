@@ -4,6 +4,7 @@ from core.entities.candidate import Candidate;
 from core.entities.voter import Voter;
 from core.entities.user import User;
 from dataclasses import dataclass;
+from datetime import datetime
 from typing import List;
 from PIL import Image;
 
@@ -35,6 +36,20 @@ class DataUser:
     name: str;
     email: str;
     password: str;
+    
+@dataclass
+class DataAdm(DataUser):
+    adminRole: str;
+    permissionsList: List[str];
+    lastLogin: datetime;
+
+@dataclass
+class DataPermission():
+    id: int;
+    name: str;
+    description: str;
+    accessLevels: List[str];
+    isActive: bool;
     
 @dataclass
 class DataPoliticalParty:
