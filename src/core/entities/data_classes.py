@@ -53,7 +53,7 @@ class DataPoliticalPosition:
 class DataElection:
     id: int;
     name: str;
-    politicalPosition: List[PoliticalPosition];
+    politicalPositions: List[PoliticalPosition];
     politicalCandidates: List[Candidate];
     politicalPartys: List[PoliticalParty];
     voters: List[Voter];

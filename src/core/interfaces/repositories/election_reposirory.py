@@ -11,6 +11,17 @@ class IElectionRepository(ABC):
         pass;
     
     # read/ get election
+    @abstractmethod
+    def GetElectionbyId(self, election_id: int) -> Optional[Election]:
+        pass;
+    
+    @abstractmethod
+    def GetElectionbyName(self, election_name: str) -> Optional[Election]:
+        pass;
+    
+    @abstractmethod
+    def GetListElection(self) -> List[Election]:
+        pass;
     
     # update election
     
