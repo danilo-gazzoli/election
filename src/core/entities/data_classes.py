@@ -62,6 +62,7 @@ class DataPoliticalParty:
 class DataPoliticalPosition:
     id: int;
     name: str;
+    vacancies: int;
     candidatesCompeting: List[Candidate];
     
 @dataclass
