@@ -90,7 +90,7 @@ class Candidate(Voter):
         
     # candidate political position getter and setter
     @property
-    def politicalPosition(self) -> PoliticalPosition:
+    def politicalPosition(self) -> 'PoliticalPosition':
         return self._politicalPosition;
     
     @politicalPosition.setter
@@ -101,7 +101,7 @@ class Candidate(Voter):
     
     # candidate political party getter and setter
     @property
-    def politicalParty(self) -> PoliticalParty:
+    def politicalParty(self) -> 'PoliticalParty':
         return self._politicalParty;
             
     @politicalParty.setter

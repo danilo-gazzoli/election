@@ -6,11 +6,11 @@ from datetime import datetime
 from typing import List;
 
 class Adm(User):
-    def __init__(self, adm_data: 'DataAdm', user_data: 'DataUser'):
-        super().__init__(user_data);
-        self._adminRole = adm_data.adminRole;
-        self._permissionsList: List['Permission'] = adm_data.permissions;
-        self._lastLogin = adm_data.lastLogin;
+    def __init__(self, id: int, name: str, email: str, password: str, adminRole: str, permitionList: List['Permission'], lastLogin: datetime):
+        super().__init__(id, name, email, password);
+        self._adminRole = adminRole;
+        self._permissionsList = permitionList;
+        self._lastLogin = lastLogin;
     
     # adm id getter
     @property

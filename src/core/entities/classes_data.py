@@ -15,8 +15,8 @@ class DataCandidate(DataVoter):
     
     candidateID: int;
     candidateNumber: int;
-    politicalParty: PoliticalParty;
-    politicalPosition: PoliticalPosition;
+    politicalParty: 'PoliticalParty';
+    politicalPosition: 'PoliticalPosition';
     amountVotes: int;
     profilePicture: Image;
     

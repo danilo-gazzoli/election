@@ -2,11 +2,11 @@ from classes_data import DataUser;
 from verify_email import verify_email;
 
 class User:
-    def __init__(self, user_data: 'DataUser'):
-        self._id = user_data.id;
-        self._name = user_data.name;
-        self._email = user_data.email;
-        self._password = user_data.password;
+    def __init__(self, id: int, name: str, email: str, password: str):
+        self._id = id;
+        self._name = name;
+        self._email = email;
+        self._password = password;
     
     # user id getter 
     @property

@@ -5,7 +5,7 @@ from typing import List;
 from PIL import Image;
 
 class PoliticalParty:
-    def __init__(self, politicalParty_data: DataPoliticalParty):
+    def __init__(self, politicalParty_data: 'DataPoliticalParty'):
         self._id = politicalParty_data.id;
         self._name = politicalParty_data.name;
         self._partyPicture = politicalParty_data.partyPicture;
@@ -35,7 +35,7 @@ class PoliticalParty:
         return self._partyPicture;
     
     @picture.setter
-    def set_picture(self, value: Image, election: Election):
+    def set_picture(self, value: Image, election: 'Election'):
         
         if value is None:
             raise ValueError("The picture can't be empty");
