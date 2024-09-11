@@ -1,4 +1,3 @@
-from classes_data import DataAdm, DataUser;
 from permission import Permission;
 from verify_email import verify_email;
 from user import User;

@@ -1,15 +1,14 @@
-from classes_data import DataPoliticalParty;
 from candidate import Candidate;
 from entities.election import Election;
 from typing import List;
 from PIL import Image;
 
 class PoliticalParty:
-    def __init__(self, politicalParty_data: 'DataPoliticalParty'):
-        self._id = politicalParty_data.id;
-        self._name = politicalParty_data.name;
-        self._partyPicture = politicalParty_data.partyPicture;
-        self._candidateList: List['Candidate'] = politicalParty_data.candidateList;
+    def __init__(self, id: int, name: str, partyPicture: Image, candidateList: List['Candidate']):
+        self._id = id;
+        self._name = name;
+        self._partyPicture = partyPicture;
+        self._candidateList: List['Candidate'] = candidateList;
         
     # id getter
     @property

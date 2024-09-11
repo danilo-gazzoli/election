@@ -1,14 +1,12 @@
-from classes_data import DataVoter, DataVote;
-
 class Voter:
-    def __init__(self, voter_data: 'DataVoter', vote_data: 'DataVote'):
-        self._cardNumber = voter_data.cardNumber;
-        self._name = voter_data.name;
-        self._voteNumber = vote_data.voteNumber;
-        self._votePermission = vote_data.votePermission;
-        self._votePosition = vote_data.votePosition;
-        self._voteNone = vote_data.voteNone;
-        self._voteNull = vote_data.voteNull;
+    def __init__(self, name: str, cardNumber: int, voteNumber: int, voteNull: int, voteNone: int, votePosition: str, votePermission: bool):
+        self._cardNumber = cardNumber;
+        self._name = name;
+        self._voteNumber = voteNumber;
+        self._votePermission = votePermission;
+        self._votePosition = votePosition;
+        self._voteNone = voteNone;
+        self._voteNull = voteNull;
         
     # Voter card number getter and setter
     @property

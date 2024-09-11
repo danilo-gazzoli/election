@@ -1,13 +1,13 @@
-from classes_data import DataPoliticalPosition;
 from candidate import Candidate;
 from typing import List;
+
 class PoliticalPosition:
     
-    def __init__(self, politicalPosition_data: 'DataPoliticalPosition'):
-        self._id = politicalPosition_data.id;
-        self._name = politicalPosition_data.name;
-        self._vacancies = politicalPosition_data.vacancies;
-        self._candidatesCompeting: List[Candidate] = politicalPosition_data.candidatesCompeting;
+    def __init__(self, id: int, name: str, vacancies: int, candidatesCompeting: List['Candidate']):
+        self._id = id;
+        self._name = name;
+        self._vacancies = vacancies;
+        self._candidatesCompeting: List['Candidate'] = candidatesCompeting;
         
     # political postion id getter 
     @property

@@ -1,4 +1,3 @@
-from classes_data import DataUser;
 from verify_email import verify_email;
 
 class User:
@@ -45,7 +44,7 @@ class User:
     @password.setter
     def set_password(self, value: str):
         
-        if value is "":
+        if value == "":
             raise ValueError("This password is not valid");
         
         self._password = value;

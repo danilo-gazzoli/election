@@ -1,13 +1,12 @@
-from dataclasses import DataPermission;
 from typing import List;
 
 class Permission:
-    def __init__(self, permission_data: 'DataPermission'):
-        self._id = permission_data.id;
-        self._name = permission_data.name;
-        self._description = permission_data.description;
-        self._accessLevels: List[str] = permission_data.accessLevels;
-        self._isActive = permission_data.isActive;
+    def __init__(self, id: int, name: str, description: str, accessLevels: List[str], isActive: bool):
+        self._id = id;
+        self._name = name;
+        self._description = description;
+        self._accessLevels: List[str] = accessLevels;
+        self._isActive = isActive;
         
     # id getter
     @property

@@ -1,18 +1,17 @@
 from political_position import PoliticalPosition;
 from political_party import PoliticalParty;
-from classes_data import DataElection;
 from candidate import Candidate;
 from voter import Voter;
 from typing import List;
 
 class Election:
-    def __init__(self, election_data: 'DataElection'):
-        self._id = election_data.id;
-        self._name = election_data.name;
-        self._politicalPositions: List['PoliticalPosition'] = election_data.politicalPositions;
-        self._politicalPartys: List['PoliticalParty'] = election_data.politicalPartys;
-        self._politicalCandidates: List['Candidate'] = election_data.politicalCandidates;
-        self._voters: List['Voter'] = election_data.voters;
+    def __init__(self, id: int, name: str, politicalPositions: List['PoliticalPosition'], politicalCandidates: List['Candidate'], politicalPartys: List['PoliticalParty'], voters: List['Voter']):
+        self._id = id;
+        self._name = name;
+        self._politicalPositions: List['PoliticalPosition'] = politicalPositions;
+        self._politicalPartys: List['PoliticalParty'] = politicalPartys;
+        self._politicalCandidates: List['Candidate'] = politicalCandidates;
+        self._voters: List['Voter'] = voters;
         
     # election id getter
     @property

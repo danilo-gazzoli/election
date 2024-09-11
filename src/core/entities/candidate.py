@@ -1,18 +1,18 @@
-from classes_data import DataVoter, DataVote, DataCandidate;
 from political_position import PoliticalPosition;
 from entities.political_party import PoliticalParty;
 from entities.election import Election;
 from entities.voter import Voter;
+from PIL import Image; 
 
 class Candidate(Voter):
-    def __init__(self, voter_data: 'DataVoter', vote_data: 'DataVote', candidate_data: 'DataCandidate'):
-        super().__init__(voter_data, vote_data);
-        self._candidateNumber = candidate_data.candidateNumber;
-        self._candidateID = candidate_data.candidateID;
-        self._profilePicture = candidate_data.profilePicture;
-        self._politicalParty = candidate_data.politicalParty;
-        self._politicalPosition = candidate_data.politicalPosition;
-        self._amountVote = candidate_data.amountVotes;
+    def __init__(self, name: str, cardNumber: int, voteNumber: int, voteNull: int, voteNone: int, votePosition: str, votePermission: bool, candidateID: int, candidateNumber: int, politicalParty: 'PoliticalParty', politicalPosition: 'PoliticalPosition', amountVotes: int, profilePicture: Image):
+        super().__init__(cardNumber, name, voteNumber, votePermission, votePosition, voteNone, voteNull);
+        self._candidateNumber = candidateNumber;
+        self._candidateID = candidateID;
+        self._profilePicture = profilePicture;
+        self._politicalParty = politicalParty;
+        self._politicalPosition = politicalPosition;
+        self._amountVote = amountVotes;
         
     # candidate card number getter and setter
     @property
