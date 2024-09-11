@@ -14,15 +14,15 @@ class Adm(User):
     
     # adm id getter
     @property
-    def AdmId(self):
+    def id(self):
         return self._id;
     
     # adm name getter and setter
     @property
-    def AdmName(self):
+    def name(self):
         return self._name;
     
-    @AdmName.setter
+    @name.setter
     def set_name(self, value: str):
         if not value:
             raise ValueError("Name can't be empty");
@@ -30,10 +30,10 @@ class Adm(User):
     
     # adm email getter and setter
     @property
-    def AdmEmail(self):
+    def email(self):
         return self._email;
     
-    @AdmEmail.setter
+    @email.setter
     def set_email(self, value):
         
         if verify_email(value) is False:
@@ -43,37 +43,37 @@ class Adm(User):
     
     # password getter and setter
     @property
-    def AdmPassword(self):
+    def password(self):
         return self._password;
     
-    @AdmPassword.setter
+    @password.setter
     def set_password(self, value: str):
         self._password = value;
         
     # adm role getter and setter
     @property
-    def AdmRole(self):
+    def role(self):
         return self._adminRole;
     
-    @AdmRole.setter
+    @role.setter
     def set_role(self, value: str):
         self._adminRole = value;
         
     # adm last login getter and setter 
     @property
-    def AdmLastLogin(self):
+    def lastLogin(self):
         return self._lastLogin;
     
-    @AdmLastLogin.setter
+    @lastLogin.setter
     def set_last_login(self, value: datetime):
         self._lastLogin = value;
         
     # adm permition list getter and setter
     @property
-    def AdmPermitionList(self):
+    def permitionList(self):
         return self._permissionsList;
     
-    @AdmPermitionList.setter
+    @permitionList.setter
     def set_permition_list(self, perm_list: List[Permission]):
         
         if not all(isinstance(permission, Permission) for permission in perm_list):

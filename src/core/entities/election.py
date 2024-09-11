@@ -16,16 +16,16 @@ class Election:
         
     # election id getter
     @property
-    def ElectionID(self):
+    def id(self):
         return self._id;
     
     # election name gatter and setter
     @property
-    def ElectionName(self):
+    def name(self):
         return self._name;
     
-    @ElectionName.setter
-    def set_election_name(self, value: str):
+    @name.setter
+    def set_name(self, value: str):
         
         if value is None:
             raise ValueError("The name can't be empty");
@@ -34,10 +34,10 @@ class Election:
     
     # election political positions gatter and setter
     @property
-    def ElectionPoliticalPositions(self):
+    def politicalPositions(self):
         return self._politicalPositions;
     
-    @ElectionPoliticalPositions.setter
+    @politicalPositions.setter
     def set_political_positions(self, political_positions: List[PoliticalPosition]):
         
         if not all(isinstance(politicalPosition, PoliticalPosition) for politicalPosition in political_positions):
@@ -47,10 +47,10 @@ class Election:
     
     # election political partys gatter and setter
     @property
-    def ElectionPoliticalPartys(self):
+    def politicalPartys(self):
         return self._politicalPartys;
     
-    @ElectionPoliticalPartys.setter
+    @politicalPartys.setter
     def set_political_partys(self, political_partys: List[PoliticalParty]):
         
         if not all(isinstance(politicalParty, PoliticalParty) for politicalParty in political_partys):
@@ -60,11 +60,11 @@ class Election:
     
     # election candidates gatter and setter
     @property
-    def ElectionCandidates(self) -> List[Candidate]:
+    def candidates(self) -> List[Candidate]:
         return self._politicalCandidates;
     
-    @ElectionCandidates.setter
-    def set_political_candidates(self, political_candidates: List[Candidate]):
+    @candidates.setter
+    def set_candidates(self, political_candidates: List[Candidate]):
         
         if not all(isinstance(candidate, Candidate) for candidate in political_candidates):
             raise ValueError("All items must be instances of Candidate");
@@ -73,10 +73,10 @@ class Election:
     
     # election voters gatter and setter
     @property
-    def ElectionVoters(self):
+    def voters(self):
         return self._voters;
     
-    @ElectionVoters.setter
+    @voters.setter
     def set_voters(self, political_voters: List[Voter]):
         
         if not all(isinstance(voter, Voter) for voter in political_voters):

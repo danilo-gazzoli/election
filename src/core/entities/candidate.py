@@ -16,10 +16,10 @@ class Candidate(Voter):
         
     # candidate card number getter and setter
     @property
-    def CandidateCardNumber(self):
+    def cardNumber(self):
         return self._cardNumber;
     
-    @CandidateCardNumber.setter
+    @cardNumber.setter
     def set_card_number(self, value: int):
         
         if value is None:
@@ -29,10 +29,10 @@ class Candidate(Voter):
         
     # candidate name getter and setter
     @property
-    def CandidateName(self):
+    def name(self):
         return self._name;
     
-    @CandidateName.setter
+    @name.setter
     def set_name(self, value: str):
         
         if value is None:
@@ -42,28 +42,28 @@ class Candidate(Voter):
         
     # candidate vote number getter and setter
     @property
-    def CandidateVoteNumber(self):
+    def voteNumber(self):
         return self._voteNumber
     
-    @CandidateVoteNumber.setter
-    def set_vote_number(self, value: int):
+    @voteNumber.setter
+    def set_vote_number(self, value):
         self._voteNumber = value;
         
     # candidate vote permission getter and setter
     @property
-    def CandidateVotePermission(self):
+    def votePermission(self):
         return self._votePermission
     
-    @CandidateVotePermission.setter
+    @votePermission.setter
     def set_vote_permission(self, value: bool):
         self._votePermission = value;
         
     # candidate vote position getter and setter
     @property
-    def CandidateVotePosition(self):
+    def votePosition(self):
         return self._voteNumber
     
-    @CandidateVotePosition.setter
+    @votePosition.setter
     def set_vote_position(self, value: str):
         
         if value is None:
@@ -73,10 +73,10 @@ class Candidate(Voter):
         
     # candidate number getter and setter
     @property
-    def CandidateNumber(self):
+    def candidateNumber(self):
         return self._candidateNumber;
     
-    @CandidateNumber.setter
+    @candidateNumber.setter
     def set_candidate_number(self, value: int, election: Election):
         
         if value is None:
@@ -90,10 +90,10 @@ class Candidate(Voter):
         
     # candidate political position getter and setter
     @property
-    def CandidatePoliticalPosition(self) -> PoliticalPosition:
+    def politicalPosition(self) -> PoliticalPosition:
         return self._politicalPosition;
     
-    @CandidatePoliticalPosition.setter
+    @politicalPosition.setter
     def set_candidate_political_position(self, value: PoliticalPosition):
         if not isinstance(value, PoliticalPosition):
             raise ValueError("Invalid political position")
@@ -101,10 +101,10 @@ class Candidate(Voter):
     
     # candidate political party getter and setter
     @property
-    def CandidatePoliticalParty(self) -> PoliticalParty:
+    def politicalParty(self) -> PoliticalParty:
         return self._politicalParty;
             
-    @CandidatePoliticalParty.setter
+    @politicalParty.setter
     def set_candidate_political_party(self, value: PoliticalParty, political_position: PoliticalPosition):
         
         political_postion_vacancies = PoliticalPosition.vacancies();
@@ -125,10 +125,10 @@ class Candidate(Voter):
         
     # candidate amount vote getter and setter
     @property
-    def CandidateAmountVote(self): 
+    def amountVote(self): 
         return self._amountVote;
     
-    @CandidateAmountVote.setter
+    @amountVote.setter
     def set_candidate_amount_vote(self, value: int):
         
         if value < 0:

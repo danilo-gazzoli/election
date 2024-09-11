@@ -13,15 +13,15 @@ class PoliticalParty:
         
     # id getter
     @property
-    def PoliticalPartyId(self) -> int:
+    def id(self) -> int:
         return self._id;
     
     # political party name getter and setter
     @property
-    def PoliticalPartyName(self) -> str:
+    def name(self) -> str:
         return self._name;
     
-    @PoliticalPartyName.setter
+    @name.setter
     def set_name(self, value: str):
         
         if value is None:
@@ -31,23 +31,24 @@ class PoliticalParty:
         
     # political party picture getter and setter
     @property
-    def PoliticalPartyPicture(self) -> Image:
+    def picture(self) -> Image:
         return self._partyPicture;
     
+    @picture.setter
     def set_picture(self, value: Image, election: Election):
         
         if value is None:
             raise ValueError("The picture can't be empty");
         
-        for politicalParty in election.ElectionPoliticalPartys():
-            if value == PoliticalParty.PoliticalPartyPicture():
+        for politicalParty in election.politicalPartys:
+            if value == PoliticalParty.picture():
                 raise ValueError(f"The {value} must be used bt another political party");
             
         self._partyPicture = value;
     
     # political party candidate list getter and setter    
     @property
-    def CandidatesList(self) -> List[Candidate]:
+    def candidatesList(self) -> List[Candidate]:
         return self._candidateList;
     
     def set_candidate_list(self, candidates: List[Candidate]):

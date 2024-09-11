@@ -10,15 +10,15 @@ class User:
     
     # user id getter 
     @property
-    def UserId(self):
+    def id(self):
         return self._id;
     
     # user name getter and setter
     @property
-    def UserName(self):
+    def name(self):
         return self._name;
     
-    @UserName.setter
+    @name.setter
     def set_name(self, value: str):
         if not value:
             raise ValueError("Name can't be empty");
@@ -26,10 +26,10 @@ class User:
     
     # user email getter and setter 
     @property
-    def UserEmail(self):
+    def email(self):
         return self._email;
     
-    @UserEmail.setter
+    @email.setter
     def set_email(self, value):
         
         if verify_email(value) is False:
@@ -39,9 +39,13 @@ class User:
     
     # user password getter and setter
     @property
-    def UserPassword(self):
+    def password(self):
         return self._password;
     
-    @UserPassword.setter
+    @password.setter
     def set_password(self, value: str):
+        
+        if value is "":
+            raise ValueError("This password is not valid");
+        
         self._password = value;
