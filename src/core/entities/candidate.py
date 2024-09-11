@@ -83,7 +83,7 @@ class Candidate(Voter):
             raise ValueError("The candidate number can't be empty");
         
         for candidate in election.ElectionCandidates():
-            if candidate.CandidateNumber == value:
+            if candidate.CandidateNumber() == value:
                 raise ValueError(f"Candidate number {value} is already use by another candidate");
 
         self._candidateNumber = value;
