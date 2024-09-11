@@ -45,6 +45,6 @@ class PoliticalPosition:
     def set_candidatesCompeting(self, candidates: List[Candidate]):
         
         if not all(isinstance(candidate, Candidate) for candidate in candidates):
-            raise ValueError("All candidates must be instances of Candidate")
+            raise ValueError("All candidates must be instances of Candidate");
         
         self._candidatesCompeting = candidates;
