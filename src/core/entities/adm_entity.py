@@ -1,15 +1,15 @@
-from core.entities.data_classes import DataAdm, DataUser;
-from core.entities.permission import Permission;
+from classes_data import DataAdm, DataUser;
+from permission import Permission;
 from verify_email import verify_email;
-from core.entities.user import User;
+from user import User;
 from datetime import datetime
 from typing import List;
 
 class Adm(User):
-    def __init__(self, adm_data: DataAdm, user_data: DataUser):
+    def __init__(self, adm_data: 'DataAdm', user_data: 'DataUser'):
         super().__init__(user_data);
         self._adminRole = adm_data.adminRole;
-        self._permissionsList: List[Permission] = adm_data.permissions;
+        self._permissionsList: List['Permission'] = adm_data.permissions;
         self._lastLogin = adm_data.lastLogin;
     
     # adm id getter
@@ -74,7 +74,7 @@ class Adm(User):
         return self._permissionsList;
     
     @permitionList.setter
-    def set_permition_list(self, perm_list: List[Permission]):
+    def set_permition_list(self, perm_list: List['Permission']):
         
         if not all(isinstance(permission, Permission) for permission in perm_list):
             raise ValueError("All items must be instances of Permission")

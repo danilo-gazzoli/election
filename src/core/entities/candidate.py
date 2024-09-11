@@ -1,11 +1,11 @@
-from core.entities.data_classes import DataVoter, DataVote, DataCandidate;
-from core.entities.political_position import PoliticalPosition;
-from core.entities.political_party import PoliticalParty;
-from core.entities.election import Election;
-from core.entities.voter import Voter;
+from classes_data import DataVoter, DataVote, DataCandidate;
+from political_position import PoliticalPosition;
+from entities.political_party import PoliticalParty;
+from entities.election import Election;
+from entities.voter import Voter;
 
 class Candidate(Voter):
-    def __init__(self, voter_data: DataVoter, vote_data: DataVote, candidate_data: DataCandidate):
+    def __init__(self, voter_data: 'DataVoter', vote_data: 'DataVote', candidate_data: 'DataCandidate'):
         super().__init__(voter_data, vote_data);
         self._candidateNumber = candidate_data.candidateNumber;
         self._candidateID = candidate_data.candidateID;
@@ -77,7 +77,7 @@ class Candidate(Voter):
         return self._candidateNumber;
     
     @candidateNumber.setter
-    def set_candidate_number(self, value: int, election: Election):
+    def set_candidate_number(self, value: int, election: 'Election'):
         
         if value is None:
             raise ValueError("The candidate number can't be empty");
@@ -94,7 +94,7 @@ class Candidate(Voter):
         return self._politicalPosition;
     
     @politicalPosition.setter
-    def set_candidate_political_position(self, value: PoliticalPosition):
+    def set_candidate_political_position(self, value: 'PoliticalPosition'):
         if not isinstance(value, PoliticalPosition):
             raise ValueError("Invalid political position")
         self._politicalPosition = value;
@@ -105,7 +105,7 @@ class Candidate(Voter):
         return self._politicalParty;
             
     @politicalParty.setter
-    def set_candidate_political_party(self, value: PoliticalParty, political_position: PoliticalPosition):
+    def set_candidate_political_party(self, value: 'PoliticalParty', political_position: 'PoliticalPosition'):
         
         political_postion_vacancies = PoliticalPosition.vacancies();
         

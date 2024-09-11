@@ -1,6 +1,6 @@
-from core.entities.data_classes import DataPoliticalParty;
-from core.entities.candidate import Candidate;
-from core.entities.election import Election;
+from classes_data import DataPoliticalParty;
+from candidate import Candidate;
+from entities.election import Election;
 from typing import List;
 from PIL import Image;
 
@@ -9,7 +9,7 @@ class PoliticalParty:
         self._id = politicalParty_data.id;
         self._name = politicalParty_data.name;
         self._partyPicture = politicalParty_data.partyPicture;
-        self._candidateList: List[Candidate] = politicalParty_data.candidateList;
+        self._candidateList: List['Candidate'] = politicalParty_data.candidateList;
         
     # id getter
     @property
@@ -48,10 +48,10 @@ class PoliticalParty:
     
     # political party candidate list getter and setter    
     @property
-    def candidatesList(self) -> List[Candidate]:
+    def candidatesList(self) -> List['Candidate']:
         return self._candidateList;
     
-    def set_candidate_list(self, candidates: List[Candidate]):
+    def set_candidate_list(self, candidates: List['Candidate']):
         
         if not all(isinstance(candidate, Candidate) for candidate in candidates):
             raise ValueError("All candidates must be instances of Candidate");

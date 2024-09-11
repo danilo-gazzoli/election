@@ -1,8 +1,3 @@
-from core.entities.political_position import PoliticalPosition;
-from core.entities.political_party import PoliticalParty;
-from core.entities.candidate import Candidate;
-from core.entities.voter import Voter;
-from core.entities.user import User;
 from dataclasses import dataclass;
 from datetime import datetime
 from typing import List;
@@ -15,6 +10,9 @@ class DataVoter:
     
 @dataclass    
 class DataCandidate(DataVoter):
+    from political_party import PoliticalParty;
+    from political_position import PoliticalPosition;
+    
     candidateID: int;
     candidateNumber: int;
     politicalParty: PoliticalParty;
@@ -53,24 +51,35 @@ class DataPermission():
     
 @dataclass
 class DataPoliticalParty:
+    from political_party import PoliticalParty;
+    from candidate import Candidate;
+    
     id: int;
     name: str;
     partyPicture: Image;
-    candidateList: List[Candidate];
+    candidateList: List['Candidate'];
     
 @dataclass
 class DataPoliticalPosition:
+    from political_position import PoliticalPosition;
+    from candidate import Candidate;
+    
     id: int;
     name: str;
     vacancies: int;
-    candidatesCompeting: List[Candidate];
+    candidatesCompeting: List['Candidate'];
     
 @dataclass
 class DataElection:
+    from political_position import PoliticalPosition;
+    from political_party import PoliticalParty;
+    from candidate import Candidate;
+    from voter import Voter;
+    
     id: int;
     name: str;
-    politicalPositions: List[PoliticalPosition];
-    politicalCandidates: List[Candidate];
-    politicalPartys: List[PoliticalParty];
-    voters: List[Voter];
+    politicalPositions: List['PoliticalPosition'];
+    politicalCandidates: List['Candidate'];
+    politicalPartys: List['PoliticalParty'];
+    voters: List['Voter'];
     

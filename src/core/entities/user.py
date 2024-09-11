@@ -1,8 +1,8 @@
-from core.entities.data_classes import DataUser;
+from classes_data import DataUser;
 from verify_email import verify_email;
 
 class User:
-    def __init__(self, user_data: DataUser):
+    def __init__(self, user_data: 'DataUser'):
         self._id = user_data.id;
         self._name = user_data.name;
         self._email = user_data.email;

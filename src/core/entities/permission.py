@@ -1,8 +1,8 @@
-from core.entities.data_classes import DataPermission;
+from dataclasses import DataPermission;
 from typing import List;
 
 class Permission:
-    def __init__(self, permission_data: DataPermission):
+    def __init__(self, permission_data: 'DataPermission'):
         self._id = permission_data.id;
         self._name = permission_data.name;
         self._description = permission_data.description;

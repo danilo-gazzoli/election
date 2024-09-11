@@ -1,18 +1,18 @@
-from core.entities.political_position import PoliticalPosition;
-from core.entities.political_party import PoliticalParty;
-from core.entities.data_classes import DataElection;
-from core.entities.candidate import Candidate;
-from core.entities.voter import Voter;
+from political_position import PoliticalPosition;
+from political_party import PoliticalParty;
+from classes_data import DataElection;
+from candidate import Candidate;
+from voter import Voter;
 from typing import List;
 
 class Election:
-    def __init__(self, election_data: DataElection):
+    def __init__(self, election_data: 'DataElection'):
         self._id = election_data.id;
         self._name = election_data.name;
-        self._politicalPositions: List[PoliticalPosition] = election_data.politicalPositions;
-        self._politicalPartys: List[PoliticalParty] = election_data.politicalPartys;
-        self._politicalCandidates: List[Candidate] = election_data.politicalCandidates;
-        self._voters: List[Voter] = election_data.voters;
+        self._politicalPositions: List['PoliticalPosition'] = election_data.politicalPositions;
+        self._politicalPartys: List['PoliticalParty'] = election_data.politicalPartys;
+        self._politicalCandidates: List['Candidate'] = election_data.politicalCandidates;
+        self._voters: List['Voter'] = election_data.voters;
         
     # election id getter
     @property
@@ -38,7 +38,7 @@ class Election:
         return self._politicalPositions;
     
     @politicalPositions.setter
-    def set_political_positions(self, political_positions: List[PoliticalPosition]):
+    def set_political_positions(self, political_positions: List['PoliticalPosition']):
         
         if not all(isinstance(politicalPosition, PoliticalPosition) for politicalPosition in political_positions):
             raise ValueError("All items must be instances of PoliticalPosition");
@@ -51,7 +51,7 @@ class Election:
         return self._politicalPartys;
     
     @politicalPartys.setter
-    def set_political_partys(self, political_partys: List[PoliticalParty]):
+    def set_political_partys(self, political_partys: List['PoliticalParty']):
         
         if not all(isinstance(politicalParty, PoliticalParty) for politicalParty in political_partys):
             raise ValueError("All items must be instances of PoliticalParty");
@@ -60,11 +60,11 @@ class Election:
     
     # election candidates gatter and setter
     @property
-    def candidates(self) -> List[Candidate]:
+    def candidates(self) -> List['Candidate']:
         return self._politicalCandidates;
     
     @candidates.setter
-    def set_candidates(self, political_candidates: List[Candidate]):
+    def set_candidates(self, political_candidates: List['Candidate']):
         
         if not all(isinstance(candidate, Candidate) for candidate in political_candidates):
             raise ValueError("All items must be instances of Candidate");
@@ -77,7 +77,7 @@ class Election:
         return self._voters;
     
     @voters.setter
-    def set_voters(self, political_voters: List[Voter]):
+    def set_voters(self, political_voters: List['Voter']):
         
         if not all(isinstance(voter, Voter) for voter in political_voters):
             raise ValueError("All items must be instances of Voter");
