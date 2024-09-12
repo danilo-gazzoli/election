@@ -1,5 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
 html, body {
     height: 100%;
+}
+
+.body {
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
 }
 
 .form-container {
@@ -8,6 +18,8 @@ html, body {
 }
 
 .sesi-logo {
-    border-radius: 50%;
-    align-items: center;
+    border-radius: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
 }
