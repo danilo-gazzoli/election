@@ -1,9 +1,9 @@
-from flask import Flask
+from flask import Flask, render_template, url_for;
 
-app = Flask(__name__);
+app = Flask(__name__, static_url_path='/src/Infrastructure/services/flask/static');
 
 @app.route("/")
-def Ola():
-    return "<p>Olá, mundo</p>";
+def login():
+    return render_template("login-register.html");
 
-app.run("localhost:5000", debug=True);
+app.run(debug=True);
