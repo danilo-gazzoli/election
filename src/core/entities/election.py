@@ -1,17 +1,18 @@
+from dataclasses import dataclass;
 from political_position import PoliticalPosition;
 from political_party import PoliticalParty;
 from candidate import Candidate;
 from voter import Voter;
 from typing import List;
 
+@dataclass
 class Election:
-    def __init__(self, id: int, name: str, politicalPositions: List['PoliticalPosition'], politicalCandidates: List['Candidate'], politicalPartys: List['PoliticalParty'], voters: List['Voter']):
-        self._id = id;
-        self._name = name;
-        self._politicalPositions: List['PoliticalPosition'] = politicalPositions;
-        self._politicalPartys: List['PoliticalParty'] = politicalPartys;
-        self._politicalCandidates: List['Candidate'] = politicalCandidates;
-        self._voters: List['Voter'] = voters;
+    _id: int;
+    _name: str;
+    _politicalPositions: List['PoliticalPosition'];
+    _politicalCandidates: List['Candidate'];
+    _politicalPartys: List['PoliticalParty'];
+    _voters: List['Voter'];
         
     # election id getter
     @property

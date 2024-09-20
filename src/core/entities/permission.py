@@ -1,12 +1,13 @@
+from dataclasses import dataclass;
 from typing import List;
 
+@dataclass
 class Permission:
-    def __init__(self, id: int, name: str, description: str, accessLevels: List[str], isActive: bool):
-        self._id = id;
-        self._name = name;
-        self._description = description;
-        self._accessLevels: List[str] = accessLevels;
-        self._isActive = isActive;
+    _id: int;
+    _name: str;
+    _description: str;
+    _accessLevels: List[str];
+    _isActive: bool;
         
     # id getter
     @property
