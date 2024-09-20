@@ -1,13 +1,15 @@
+from dataclasses import dataclass;
+
+@dataclass
 class Voter:
-    def __init__(self, name: str, cardNumber: int, voteNumber: int, voteNull: int, voteNone: int, votePosition: str, votePermission: bool):
-        self._cardNumber = cardNumber;
-        self._name = name;
-        self._voteNumber = voteNumber;
-        self._votePermission = votePermission;
-        self._votePosition = votePosition;
-        self._voteNone = voteNone;
-        self._voteNull = voteNull;
-        
+    _name: str;
+    _cardNumber: int;
+    _voteNumber: int;
+    _voteNull: int;
+    _voteNone: int;
+    _votePosition: str;
+    _votePermission: bool;
+    
     # Voter card number getter and setter
     @property
     def cardNumber(self):
