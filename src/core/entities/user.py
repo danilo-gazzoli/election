@@ -1,12 +1,13 @@
+from dataclasses import dataclass;
 from verify_email import verify_email;
 
+@dataclass
 class User:
-    def __init__(self, id: int, name: str, email: str, password: str):
-        self._id = id;
-        self._name = name;
-        self._email = email;
-        self._password = password;
-    
+    _id: int;
+    _name: str;
+    _email: str;
+    _password: str;
+
     # user id getter 
     @property
     def id(self):

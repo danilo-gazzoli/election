@@ -1,53 +1,15 @@
+from dataclasses import dataclass;
 from permission import Permission;
 from verify_email import verify_email;
 from user import User;
 from datetime import datetime
 from typing import List;
 
+@dataclass
 class Adm(User):
-    def __init__(self, id: int, name: str, email: str, password: str, adminRole: str, permitionList: List['Permission'], lastLogin: datetime):
-        super().__init__(id, name, email, password);
-        self._adminRole = adminRole;
-        self._permissionsList = permitionList;
-        self._lastLogin = lastLogin;
-    
-    # adm id getter
-    @property
-    def id(self):
-        return self._id;
-    
-    # adm name getter and setter
-    @property
-    def name(self):
-        return self._name;
-    
-    @name.setter
-    def set_name(self, value: str):
-        if not value:
-            raise ValueError("Name can't be empty");
-        self._name = value;
-    
-    # adm email getter and setter
-    @property
-    def email(self):
-        return self._email;
-    
-    @email.setter
-    def set_email(self, value):
-        
-        if verify_email(value) is False:
-            raise ValueError("This email address is not valid");
-        
-        self._email = value;
-    
-    # password getter and setter
-    @property
-    def password(self):
-        return self._password;
-    
-    @password.setter
-    def set_password(self, value: str):
-        self._password = value;
+    _adminRole: str;
+    _permitionList: List['Permission'];
+    _lastLogin: datetime;
         
     # adm role getter and setter
     @property
