@@ -7,6 +7,7 @@ class User:
     _name: str;
     _email: str;
     _password: str;
+    _isLogged: bool;
 
     # user id getter 
     @property
@@ -49,3 +50,16 @@ class User:
             raise ValueError("This password is not valid");
         
         self._password = value;
+        
+    # user is logged getter and setter
+    @property
+    def isLogged(self):
+        return self._isLogged;
+    
+    @isLogged.setter
+    def set_is_logged(self, value: bool):
+        
+        if value is None:
+            raise ValueError("This value can't be empty");
+        
+        self._isLogged = value;

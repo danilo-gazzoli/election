@@ -2,18 +2,42 @@ from dataclasses import dataclass;
 from political_position import PoliticalPosition;
 from entities.political_party import PoliticalParty;
 from entities.election import Election;
-from entities.voter import Voter;
 from PIL import Image; 
 
 @dataclass
-class Candidate(Voter):
-    _candidateID: int;
+class Candidate():
+    _candidateId: int;
+    _name: str;
+    _cardNumber: int;
     _candidateNumber: int;
     _candidade_politicalParty: 'PoliticalParty';
     _candidade_politicalPosition: 'PoliticalPosition';
     _amountVotes: int;
     _profilePicture: Image;
+    
+    # candidate id getter
+    @property
+    def candidateId(self):
+        return self._candidateId;
+    
+    # candidate card number getter and setter
+    @property
+    def cardNumber(self):
+        return self._cardNumber;
+    
+    @cardNumber.setter
+    def set_card_number(self, value: int):
+        self._cardNumber = value;
         
+    # candidate name getter and setter
+    @property
+    def name(self):
+        return self._name;
+    
+    @name.setter
+    def set_name(self, value: str):
+        self._name = value;    
+    
     # candidate number getter and setter
     @property
     def candidateNumber(self):

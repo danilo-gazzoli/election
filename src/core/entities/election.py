@@ -1,18 +1,18 @@
 from dataclasses import dataclass;
 from political_position import PoliticalPosition;
+from user import User;
 from political_party import PoliticalParty;
 from candidate import Candidate;
-from voter import Voter;
 from typing import List;
 
 @dataclass
 class Election:
     _id: int;
     _name: str;
+    _usersRegistered: List['User'];
     _politicalPositions: List['PoliticalPosition'];
     _politicalCandidates: List['Candidate'];
     _politicalPartys: List['PoliticalParty'];
-    _voters: List['Voter'];
         
     # election id getter
     @property
@@ -31,6 +31,19 @@ class Election:
             raise ValueError("The name can't be empty");
         
         self._name = value;
+    
+    # election political positions gatter and setter
+    @property
+    def usersRegistered(self):
+        return self._usersRegistered;
+    
+    @usersRegistered.setter
+    def set_users_registered(self, list_users: List['User']):
+        
+        if not all(isinstance(user, User) for user in list_users):
+            raise ValueError("All items must be instances of user");
+        
+        self._usersRegistered = list_users;
     
     # election political positions gatter and setter
     @property
@@ -70,16 +83,3 @@ class Election:
             raise ValueError("All items must be instances of Candidate");
         
         self._politicalCandidates = political_candidates;
-    
-    # election voters gatter and setter
-    @property
-    def voters(self):
-        return self._voters;
-    
-    @voters.setter
-    def set_voters(self, political_voters: List['Voter']):
-        
-        if not all(isinstance(voter, Voter) for voter in political_voters):
-            raise ValueError("All items must be instances of Voter");
-        
-        self._voters = political_voters;
