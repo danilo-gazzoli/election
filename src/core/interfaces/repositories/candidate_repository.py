@@ -6,65 +6,23 @@ class ICandidateRepository(ABC):
     
     # create candidates
     @abstractmethod
-    def CreateCandidate(self, candidate: Candidate) -> None:
+    def CreateCandidate(self, candidate: 'Candidate') -> None:
         pass;
     
     # read/get candidates
     @abstractmethod
-    def GetCandidatebyCardNumber(self, candidate_cardNumber: int) -> Optional[Candidate]:
+    def GetCandidatebyID(self, candidate_id: int) -> Optional['Candidate']:
         pass;
     
     @abstractmethod
-    def GetCandidatebyName(self, candidate_name: str) -> Optional[Candidate]:
+    def GetCandidatebyFilter(self, **filter) -> List['Candidate']:
         pass;
     
     @abstractmethod
-    def GetCandidatebyCandidateNumber(self, candidate_number: int) -> Optional[Candidate]:
-        pass;
-    
-    @abstractmethod
-    def GetCandidatesbyPoliticalParty(self, political_party: str) -> List[Candidate]:
-        pass;
-    
-    @abstractmethod
-    def GetCandidatesbyPoliticalPosition(self, political_position: str) -> List[Candidate]:
-        pass;
-    
-    @abstractmethod
-    def GetCandidatesbyAmountVotes(self, amount_votes: int) -> List[Candidate]:
-        pass;
-    
-    @abstractmethod
-    def GetListCandidates(self) -> List[Candidate]:
-        pass;
-    
-    # update candidates
-    @abstractmethod
-    def UpdateCandidate(self, candidate: Candidate) -> None:
-        pass;
-    
-    @abstractmethod
-    def UpdateCandidateCardNumber(self, candidate_cardNumber: int) -> None:
-        pass;
-    
-    @abstractmethod
-    def UpdateCandidateName(self, candidate_name: str) -> None:
-        pass;
-    
-    @abstractmethod
-    def UpdateCandidateNumber(self, candidate_number: int) -> None:
-        pass;
-    
-    @abstractmethod
-    def UpdateCandidatePoliticalParty(self, political_party: str) -> None:
-        pass;
-    
-    @abstractmethod
-    def UpdateCandidatePoliticalPosition(self, political_position: str) -> None:
+    def GetAllCandidate(self) -> List['Candidate']:
         pass;
     
     # Delete/remove candidate
     @abstractmethod
-    def RemoveCandidate(self, candidate: Candidate) -> None:
+    def DeleteCandidate(self, candidate: 'Candidate') -> None:
         pass;
-    
