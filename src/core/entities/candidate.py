@@ -17,7 +17,7 @@ class Candidate():
     
     # candidate id getter
     @property
-    def candidateId(self):
+    def Id(self):
         return self._candidateId;
     
     # candidate card number getter and setter

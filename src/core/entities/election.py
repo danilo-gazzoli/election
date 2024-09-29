@@ -16,7 +16,7 @@ class Election:
         
     # election id getter
     @property
-    def id(self):
+    def Id(self):
         return self._id;
     
     # election name gatter and setter

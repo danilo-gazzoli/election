@@ -11,7 +11,7 @@ class User:
 
     # user id getter 
     @property
-    def id(self):
+    def Id(self):
         return self._id;
     
     # user name getter and setter

@@ -11,7 +11,7 @@ class Permission:
         
     # id getter
     @property
-    def id(self):
+    def Id(self):
         return self._id;
     
     # name getter and setter

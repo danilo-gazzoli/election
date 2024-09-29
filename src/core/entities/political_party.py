@@ -13,7 +13,7 @@ class PoliticalParty:
         
     # id getter
     @property
-    def id(self) -> int:
+    def Id(self) -> int:
         return self._id;
     
     # political party name getter and setter

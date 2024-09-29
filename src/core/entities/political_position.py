@@ -11,7 +11,7 @@ class PoliticalPosition:
         
     # political postion id getter 
     @property
-    def get_id(self):
+    def Id(self):
         return self._id;
     
     # political postion getter and setter
