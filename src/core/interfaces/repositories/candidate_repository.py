@@ -22,6 +22,11 @@ class ICandidateRepository(ABC):
     def GetAllCandidate(self) -> List['Candidate']:
         pass;
     
+    #  update candidate
+    @abstractmethod
+    def UpdateCandidate(self, candidate: 'Candidate'):
+        pass;
+    
     # Delete/remove candidate
     @abstractmethod
     def DeleteCandidate(self, candidate: 'Candidate') -> None:
