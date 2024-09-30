@@ -38,11 +38,13 @@ class CandidateRepository(ICandidateRepository):
         if not existing_candidate:
             raise ValueError("This candidate can't be finded");
         
-        existing_candidate.name = candidate.name();
-        existing_candidate.cardNumber = candidate.cardNumber();
-        existing_candidate.candidateNumber = candidate.candidateNumber();
-        existing_candidate.amountVote = candidate.amountVote();
-        existing_candidate.profilePicture = candidate.profilePicture();
+        existing_candidate._name = candidate.name();
+        existing_candidate._cardNumber = candidate.cardNumber();
+        existing_candidate._candidateNumber = candidate.candidateNumber();
+        existing_candidate._candidade_politicalParty = candidate.politicalParty();
+        existing_candidate._candidade_politicalPosition = candidate.politicalPosition();
+        existing_candidate._amountVote = candidate.amountVote();
+        existing_candidate._profilePicture = candidate.profilePicture();
         session.commit();
     
     # delete

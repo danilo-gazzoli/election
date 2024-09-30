@@ -37,11 +37,11 @@ class ElectionRepository(IElectionRepository):
         if not existing_election:
             raise ValueError("This election can't be finded");
         
-        existing_election.candidates = election.candidates();
-        existing_election.name = election.name();
-        existing_election.politicalPartys = election.politicalPartys();
-        existing_election.politicalPositions = election.politicalPositions();
-        existing_election.usersRegistered = election.usersRegistered();
+        existing_election._politicalCandidates = election.candidates();
+        existing_election._name = election.name();
+        existing_election._politicalPartys = election.politicalPartys();
+        existing_election._politicalPositions = election.politicalPositions();
+        existing_election._usersRegistered = election.usersRegistered();
         
     
     # delete

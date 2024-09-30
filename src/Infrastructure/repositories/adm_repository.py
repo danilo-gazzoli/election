@@ -38,14 +38,14 @@ class CandidateRepository(IAdmRepository):
         if not existing_adm:
             raise ValueError("This adm can't be finded");
         
-        existing_adm.name = adm.name();
-        existing_adm.email = adm.email();
-        existing_adm.password = adm.password();
-        existing_adm.isLogged = adm.isLogged();
-        existing_adm.role = adm.role();
-        existing_adm.permitionList = adm.permitionList();
-        existing_adm.electionList = adm.electionList();
-        existing_adm.lastLogin = adm.lastLogin();
+        existing_adm._name = adm.name();
+        existing_adm._email = adm.email();
+        existing_adm._password = adm.password();
+        existing_adm._isLogged = adm.isLogged();
+        existing_adm._adminRole = adm.role();
+        existing_adm._permitionsList = adm.permitionList();
+        existing_adm._electionList = adm.electionList();
+        existing_adm._lastLogin = adm.lastLogin();
         session.commit();
     
     # delete
