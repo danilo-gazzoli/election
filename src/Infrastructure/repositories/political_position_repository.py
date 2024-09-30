@@ -38,9 +38,9 @@ class PoliticalPositionRepository(IPoliticalPositionRepository):
         if not existing_politicalPosition:
             raise ValueError("This political position can't be finded");
 
-        existing_politicalPosition._name = politicalPosition.name();
-        existing_politicalPosition._vacancies = politicalPosition.vacancies();
-        existing_politicalPosition._candidatesCompeting = politicalPosition.candidatesCompeting();
+        existing_politicalPosition.set_name(politicalPosition.name());
+        existing_politicalPosition.set_vacancies(politicalPosition.vacancies());
+        existing_politicalPosition.set_candidatesCompeting(politicalPosition.candidatesCompeting());
 
     # delete
     def DeletePoliticalPosition(self, politicalPosition_id: int) -> None:

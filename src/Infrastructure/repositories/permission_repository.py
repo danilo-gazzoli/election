@@ -36,10 +36,10 @@ class PermissionRepository(IPermissionRepository):
         if not existing_permission:
             raise ValueError("This permission can't be finded");
         
-        existing_permission._name = permission.name();
-        existing_permission._description = permission.description();
-        existing_permission._accessLevels = permission.accessLevel();
-        existing_permission._isActive = permission.isActive();
+        existing_permission.set_name(permission.name());
+        existing_permission.set_description(permission.description());
+        existing_permission.set_accessLevels(permission.accessLevel());
+        existing_permission.set_isActive(permission.isActive());
         session.commit();
     
     # delete
