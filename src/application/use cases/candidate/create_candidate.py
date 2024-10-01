@@ -18,7 +18,7 @@ class CreateCandidate:
             politicalParty = candidate_data['politicalParty'],
             politicalPosition = candidate_data['politicalPosition'],
             amountVotes= candidate_data['amountVotes']
-        )
+        );
 
         self._candidate_repository.CreateCandidate(candidate);
         

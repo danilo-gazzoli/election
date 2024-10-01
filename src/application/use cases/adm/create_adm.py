@@ -1,7 +1,7 @@
 from core.interfaces.repositories.adm_repository import IAdmRepository;
 from core.entities.adm import Adm;
 
-class CreateUser:
+class CreateAdm:
     def __init__(self, AdmRepository: IAdmRepository):
         self._adm_repository = AdmRepository;
         
@@ -16,6 +16,6 @@ class CreateUser:
             permitionList = adm_data['permitionList'],
             electionList = adm_data['electionList'],
             lastLogin = adm_data['lastLogin']
-        )
+        );
 
-        self._adm_repository.CreateUser(adm);
+        self._adm_repository.CreateAdm(adm);

@@ -15,7 +15,7 @@ class CreateElection:
             politicalPositions = election_data['politicalPositions'],
             politicalCandidates = election_data['politicalCandidates'],
             politicalPartys = election_data['politicalPartys']
-        )
+        );
 
         self._election_repository.CreateElection(election);
         

@@ -14,7 +14,7 @@ class CreatePermission:
             description = permission_data['description'],
             accessLevels = permission_data['accessLevels'],
             isActive = permission_data['isActive']
-        )
+        );
 
         self._permission_repository.CreatePermission(permission);
         

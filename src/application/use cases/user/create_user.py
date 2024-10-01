@@ -7,6 +7,7 @@ class CreateUser:
         
     def execute(self, user_data: dict) -> None:
         self.verify_required_fields(user_data);
+        self.verify_strings_length(user_data);
         
         user = User(
             name = user_data['name'],
@@ -23,3 +24,14 @@ class CreateUser:
         for field in required_fields:
             if field not in user_data or not user_data[field]:
                 raise ValueError(f"The {field} data can't be empty"); 
+            
+    def verify_strings_length(self, user_data: dict):
+        
+        if len(user_data['name']) > 60:
+            raise ValueError("This user name is too long.");
+        
+        if len(user_data['email']) > 255:
+            raise ValueError("This email is too long.");
+        
+        if len(user_data['password']) > 60:
+            raise ValueError("This password is too long.");
