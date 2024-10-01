@@ -1,12 +1,13 @@
 from core.interfaces.repositories.permission_repository import IPermissionRepository;
 from core.entities.permission import Permission;
 
-class CreateUser:
+class CreatePermission:
     def __init__(self, PermissionRepository: IPermissionRepository):
         self._permission_repository = PermissionRepository;
         
     def execute(self, permission_data: dict) -> None:
         self.verify_required_fields(permission_data);
+        self.verify_strings_length(permission_data);
         
         permission = Permission(
             name = permission_data['name'],
@@ -15,11 +16,19 @@ class CreateUser:
             isActive = permission_data['isActive']
         )
 
-        self._permission_repository.CreateUser(permission);
+        self._permission_repository.CreatePermission(permission);
         
     def verify_required_fields(self, permission_data: dict) -> None:
         required_fields = ['name', 'description', 'accessLevels', 'isActive'];
         
         for field in required_fields:
             if field not in permission_data or not permission_data[field]:
-                raise ValueError(f"The {field} data can't be empty"); 
+                raise ValueError(f"The {field} data can't be empty");
+            
+    def verify_strings_length(self, permission_data: dict):
+        
+        if len(permission_data['name']) > 45:
+            raise ValueError("This permission name is too long.");
+        
+        if len(permission_data['description']) > 250:
+            raise ValueError("This description is too long.");
