@@ -1,3 +1,4 @@
+from datetime import datetime
 from core.interfaces.repositories.user_repository import IUserRepository;
 from core.entities.user import User;
 
@@ -8,6 +9,7 @@ class CreateUser:
     def execute(self, user_data: dict) -> None:
         self.verify_required_fields(user_data);
         self.verify_strings_length(user_data);
+        self.verify_data_type(user_data);
         
         user = User(
             name = user_data['name'],
@@ -35,3 +37,7 @@ class CreateUser:
         
         if len(user_data['password']) > 60:
             raise ValueError("This password is too long.");
+        
+    def verify_data_type(self, adm_data: dict):
+        if not isinstance(adm_data['lastLogin'], datetime):
+                raise ValueError("This data isn't a valid date");
