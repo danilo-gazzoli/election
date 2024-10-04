@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod;
-from core.entities.user import User;
+from src.core.entities.user import User;
 from typing import Optional, List;
 
 
