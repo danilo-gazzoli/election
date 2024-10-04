@@ -1,7 +1,9 @@
 import sys;
-import os;
+import os
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../')));
 
+from src.core.entities.user import User;
 from flask import Flask, render_template, url_for, redirect, flash;
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user;
 from flask_dance.contrib.google import make_google_blueprint, google;
@@ -66,6 +68,29 @@ def logout():
 @app.route("/lofi")
 def lofi():
     return render_template("login-register.html");
+
+@app.route("/register")
+def register():
+    resp = google.get('/oauth2/v2/userinfo');
+    user_info = resp.json();
+    
+    user = user_repository.GetUserbyFilter(user_info['email']);
+    
+    if user:
+        flash('This user has been registered', 'danger');
+        
+    user = User(
+            _id = None,
+            _name = user_info['name'],
+            _email = user_info['email'],
+            _google_id = user_info['id'],
+            _password = None,
+            _is_logged = False
+            );
+        
+    user_repository.CreateUser(user);
+    login_user(user);
+    flash('User registered and logged in!', 'success');
 
 @app.route("/")
 def main():

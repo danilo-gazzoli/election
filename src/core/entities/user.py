@@ -7,6 +7,7 @@ class User(UserMixin):
     _id: int;
     _name: str;
     _email: str;
+    _google_id: str = None;
     _password: str = None;
     _isLogged: bool = False;
 
@@ -14,6 +15,15 @@ class User(UserMixin):
     @property
     def Id(self):
         return self._id;
+    
+    # google id getter and setter
+    @property
+    def google_id(self):
+        return self._google_id;
+    
+    @google_id.setter
+    def set_google_id(self, value):
+        self._google_id = value;
     
     # user name getter and setter
     @property
