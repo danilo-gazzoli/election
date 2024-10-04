@@ -1,12 +1,12 @@
 import sys;
 import os;
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')));
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../')));
 
 from flask import Flask, render_template, url_for, redirect, flash;
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user;
 from flask_dance.contrib.google import make_google_blueprint, google;
 from src.application.use_cases.user_auth_with_google import AuthenticateWithGoogle;
-from repositories.user_repository import UserRepository;
+from src.infrastructure.repositories.user_repository import UserRepository;
 from config.settings import *;
 
 app = Flask(__name__, static_url_path='/src/Infrastructure/services/flask/static');
@@ -41,7 +41,7 @@ def login():
     
     if not resp.ok:
         flash('Failed to get user information from Google.', 'danger');
-        return redirect(url_for('login2'));
+        return redirect(url_for('lofi'));
     
     user_info = resp.json();
     
@@ -49,9 +49,9 @@ def login():
         user = auth_user_use_case(user_info);
         login_user(user);
         flash('Login successfully!', 'success')
-    except:
+    except Exception as e:
         flash(str(e), 'danger');
-        return redirect(url_for('login2'));
+        return redirect(url_for('lofi'));
     return redirect(url_for('/'));
 
 @app.route("/logout")
@@ -61,14 +61,14 @@ def logout():
     user_repository.UpdateUser(user);
     logout_user();
     flash('Logout successfully!', 'success');
-    return redirect(url_for('login2'));
+    return redirect(url_for('lofi'));
 
-@app.route("/login2")
-def login():
+@app.route("/lofi")
+def lofi():
     return render_template("login-register.html");
 
 @app.route("/")
-def login():
+def main():
     return render_template("login-register.html");
 
 app.run(debug=True);
