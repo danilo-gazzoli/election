@@ -1,13 +1,14 @@
 from dataclasses import dataclass;
 from verify_email import verify_email;
+from flask_login import UserMixin;
 
 @dataclass
-class User:
+class User(UserMixin):
     _id: int;
     _name: str;
     _email: str;
-    _password: str;
-    _isLogged: bool;
+    _password: str = None;
+    _isLogged: bool = False;
 
     # user id getter 
     @property
