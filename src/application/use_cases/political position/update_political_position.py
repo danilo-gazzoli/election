@@ -1,3 +1,9 @@
+import sys;
+import os;
+
+src_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../'));
+sys.path.append(src_path);
+
 from typing import Dict
 from core.entities.political_position import PoliticalPosition
 from core.interfaces.repositories.political_position_repository import IPoliticalPositionRepository

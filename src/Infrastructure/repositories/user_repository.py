@@ -1,7 +1,7 @@
 from core.interfaces.repositories.user_repository import IUserRepository;
 from core.entities.user import User;
 from sqlalchemy.orm import Session;
-from Infrastructure.db.db import get_db_session;
+from infrastructure.db.db_config import get_db_session;
 from typing import Optional, List;
 
 class UserRepository(IUserRepository):

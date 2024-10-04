@@ -1,7 +1,7 @@
 from core.interfaces.repositories.permission_repository import IPermissionRepository;
 from core.entities.permission import Permission;
 from sqlalchemy.orm import Session;
-from Infrastructure.db.db import get_db_session;
+from infrastructure.db.db_config import get_db_session;
 from typing import Optional, List;
 
 class PermissionRepository(IPermissionRepository):

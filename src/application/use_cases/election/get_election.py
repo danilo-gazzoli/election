@@ -1,3 +1,9 @@
+import sys;
+import os;
+
+src_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../'));
+sys.path.append(src_path);
+
 from src.core.entities.election import Election;
 from src.core.interfaces.repositories.election_repository import IElectionRepository;
 

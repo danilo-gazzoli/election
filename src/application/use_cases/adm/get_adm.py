@@ -1,3 +1,9 @@
+import sys;
+import os;
+
+src_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../'));
+sys.path.append(src_path);
+
 from src.core.entities.adm import Adm;
 from src.core.interfaces.repositories.adm_repository import IAdmRepository;
 

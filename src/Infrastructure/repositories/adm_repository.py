@@ -1,7 +1,7 @@
 from core.interfaces.repositories.adm_repository import IAdmRepository;
 from core.entities.adm import Adm;
 from sqlalchemy.orm import Session;
-from Infrastructure.db.db import get_db_session;
+from infrastructure.db.db_config import get_db_session;
 from typing import Optional, List;
 
 

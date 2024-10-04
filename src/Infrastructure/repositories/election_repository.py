@@ -2,7 +2,7 @@ from src.core.entities.election import Election
 from src.core.interfaces.repositories.election_repository import IElectionRepository;
 from core.entities.adm import Adm;
 from sqlalchemy.orm import Session;
-from Infrastructure.db.db import get_db_session;
+from infrastructure.db.db_config import get_db_session;
 from typing import Optional, List;
 
 class ElectionRepository(IElectionRepository):

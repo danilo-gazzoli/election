@@ -1,3 +1,9 @@
+import sys;
+import os;
+
+src_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../'));
+sys.path.append(src_path);
+
 from PIL import Image
 from core.interfaces.repositories.political_party_repository import IPoliticalPartyRepository;
 from core.entities.political_party import PoliticalParty

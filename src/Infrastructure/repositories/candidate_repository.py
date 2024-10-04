@@ -1,7 +1,7 @@
 from core.interfaces.repositories.candidate_repository import ICandidateRepository;
 from core.entities.candidate import Candidate;
 from sqlalchemy.orm import Session;
-from Infrastructure.db.db import get_db_session;
+from infrastructure.db.db_config import get_db_session;
 from typing import Optional, List;
 
 
