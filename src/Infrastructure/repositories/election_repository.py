@@ -15,19 +15,26 @@ class ElectionRepository(IElectionRepository):
         session: Session = self._db_session();
         session.add(election);
         session.commit();
+        session.close();
     
     # read
     def GetElectionbyID(self, election_id: int) -> 'Election' | None:
         session: Session = self._db_session();
-        return session.query(Election).filter(Election.Id() == election_id).first();
+        election = session.query(Election).filter(Election.Id() == election_id).first();
+        session.close();
+        return election;
     
     def GetElectionbyFilter(self, **filter) -> List['Election']:
         session: Session = self._db_session();
-        return session.query(Election).filter_by(**filter).all();
+        election = session.query(Election).filter_by(**filter).all();
+        session.close();
+        return election;
     
     def GetAllElections(self) -> List[Election]:
         session: Session = self._db_session();
-        return session.query(Adm).all();
+        election = session.query(Adm).all();
+        session.close();
+        return election;
     
     # update
     def UpdateElection(self, election: 'Election'):
@@ -42,6 +49,8 @@ class ElectionRepository(IElectionRepository):
         existing_election.set_political_partys(election.politicalPartys());
         existing_election.set_political_positions(election.politicalPositions());
         existing_election.set_users_registered(election.usersRegistered());
+        session.commit();
+        session.close();
         
     
     # delete
@@ -54,3 +63,4 @@ class ElectionRepository(IElectionRepository):
         
         session.delete(election);
         session.commit();
+        session.close();

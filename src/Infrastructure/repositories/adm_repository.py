@@ -15,19 +15,26 @@ class CandidateRepository(IAdmRepository):
         session: Session = self._db_session();
         session.add(adm);
         session.commit();
+        session.close();
         
     # read/get candidates
     def GetAdmbyID(self, adm_id: int) -> Optional['Adm']:
         session: Session = self._db_session();
-        return session.query(Adm).filter(Adm.Id() == adm_id).first();
+        adm = session.query(Adm).filter(Adm.Id() == adm_id).first();
+        session.close();
+        return adm;
     
     def GetAdmbyFilter(self, **filter) -> List['Adm']:
         session: Session = self._db_session();
-        return session.query(Adm).filter_by(**filter).all();
+        adm = session.query(Adm).filter_by(**filter).all();
+        session.close();
+        return adm;
     
     def GetAllAdm(self) -> List['Adm']:
         session: Session = self._db_session();
-        return session.query(Adm).all();
+        adm = session.query(Adm).all();
+        session.close();
+        return adm;
         
     # update
     def UpdateAdm(self, adm: 'Adm'):
@@ -47,12 +54,16 @@ class CandidateRepository(IAdmRepository):
         existing_adm.set_election_list(adm.electionList());
         existing_adm.set_last_login(adm.lastLogin());
         session.commit();
+        session.close();
     
     # delete
     def DeleteAdm(self, adm_id: int) -> None:
         session: Session = self._db_session();
         adm = session.query(Adm).filter(Adm.Id() == adm_id).first();
 
-        if adm:
-            session.delete(adm);
-            session.commit();
+        if not adm:
+            raise ValueError("Adm not finded");
+        
+        session.delete(adm);
+        session.commit();
+        session.close();

@@ -15,19 +15,26 @@ class CandidateRepository(ICandidateRepository):
         session: Session = self._db_session();
         session.add(candidate);
         session.commit();
+        session.close();
         
     # read/get candidates
     def GetCandidatebyID(self, candidate_id: int) -> Optional['Candidate']:
         session: Session = self._db_session();
-        return session.query(Candidate).filter(Candidate.Id() == candidate_id).first();
+        candidate = session.query(Candidate).filter(Candidate.Id() == candidate_id).first();
+        session.close();
+        return candidate;
     
     def GetCandidatebyFilter(self, **filter) -> List['Candidate']:
         session: Session = self._db_session();
-        return session.query(Candidate).filter_by(**filter).all();
+        candidate = session.query(Candidate).filter_by(**filter).all();
+        session.close();
+        return candidate;
     
     def GetAllCandidate(self) -> List['Candidate']:
         session: Session = self._db_session();
-        return session.query(Candidate).all();
+        candidate = session.query(Candidate).all();
+        session.close();
+        return candidate;
         
     # update
     def UpdateCandidate(self, candidate: 'Candidate'):
@@ -46,12 +53,16 @@ class CandidateRepository(ICandidateRepository):
         existing_candidate.set_candidate_amount_vote(candidate.amountVote());
         existing_candidate.set_profilePicture(candidate.profilePicture());
         session.commit();
+        session.close();
     
     # delete
     def DeleteCandidate(self, candidate_id: int) -> None:
         session: Session = self._db_session();
         candidate = session.query(Candidate).filter(Candidate.Id() == candidate_id).first();
 
-        if candidate:
-            session.delete(candidate);
-            session.commit();
+        if not candidate:
+            raise ValueError("Candidate not finded");
+        
+        session.delete(candidate);
+        session.commit();
+        session.close();

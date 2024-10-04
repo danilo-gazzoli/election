@@ -16,7 +16,7 @@ class IUserRepository(ABC):
         pass;
     
     @abstractmethod
-    def GetUserbyFilter(self, **filter) -> List['User']:
+    def GetUserbyFilter(self, **filter) -> Optional['User'] | List['User']:
         pass;
     
     @abstractmethod

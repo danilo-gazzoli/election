@@ -18,15 +18,21 @@ class UserRepository(IUserRepository):
     # read
     def GetUserbyID(self, user_id: int) -> Optional['User']:
         session: Session = self._db_session();
-        return session.query(User).filter(User.Id() == user_id).first();
+        user = session.query(User).filter(User.Id() == user_id).first();
+        session.close();
+        return user;
     
     def GetUserbyFilter(self, **filter) -> List['User']:
         session: Session = self._db_session();
-        return session.query(User).filter_by(**filter).all();
+        user = session.query(User).filter_by(**filter).all();
+        session.close();
+        return user;
     
     def GetAllUsers(self) -> List['User']:
         session: Session = self._db_session();
-        return session.query(User).all()
+        user = session.query(User).all();
+        session.close();
+        return user;
     
     # update
     def UpdateUser(self, user: 'User'):
@@ -41,6 +47,8 @@ class UserRepository(IUserRepository):
         existing_user.set_email(user.email());
         existing_user.set_password(user.password());
         existing_user.set_is_logged(user.isLogged());
+        session.commit();
+        session.close();
         
     # delete
     def DeleteUser(self, user_id: int) -> None:
@@ -52,3 +60,4 @@ class UserRepository(IUserRepository):
         
         session.delete(existing_user);
         session.commit();
+        session.close();

@@ -14,20 +14,27 @@ class PermissionRepository(IPermissionRepository):
         session: Session = self._db_session();
         session.add(permission);
         session.commit();
+        session.close();
         
     # read
     def GetPermissionbyID(self, permission_id: int) -> 'Permission' | None:
         session: Session = self._db_session();
-        return session.query(Permission).filter(Permission.Id() == permission_id).first();
+        permission = session.query(Permission).filter(Permission.Id() == permission_id).first();
+        session.close();
+        return permission;
     
     def GetAllPermissions(self) -> List['Permission']:
         session: Session = self._db_session();
-        return session.query(Permission).all();
+        permission = session.query(Permission).all();
+        session.close();
+        return permission;
     
     def GetPermissionbyFilter(self, **filter) -> List['Permission']:
         session: Session = self._db_session();
-        return session.query(Permission).filter_by(**filter).all();
-    
+        permission = session.query(Permission).filter_by(**filter).all();
+        session.close();
+        return permission;
+        
     # update
     def UpdatePermission(self, permission: 'Permission'):
         session: Session = self._db_session();
@@ -41,6 +48,7 @@ class PermissionRepository(IPermissionRepository):
         existing_permission.set_accessLevels(permission.accessLevel());
         existing_permission.set_isActive(permission.isActive());
         session.commit();
+        session.close();
     
     # delete
     def DeletePermission(self, permission_id: int) -> None:
@@ -52,3 +60,4 @@ class PermissionRepository(IPermissionRepository):
         
         session.delete(permission);
         session.commit();
+        session.close();
