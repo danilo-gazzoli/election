@@ -3,12 +3,12 @@ import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../')));
 
+from src.infrastructure.repositories.user_repository import UserRepository;
+from src.application.use_cases.user_auth_with_google import AuthenticateWithGoogle;
 from src.core.entities.user import User;
 from flask import Flask, render_template, url_for, redirect, flash;
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user;
 from flask_dance.contrib.google import make_google_blueprint, google;
-from src.application.use_cases.user_auth_with_google import AuthenticateWithGoogle;
-from src.infrastructure.repositories.user_repository import UserRepository;
 from config.settings import *;
 
 app = Flask(__name__, static_url_path='/src/Infrastructure/services/flask/static');
