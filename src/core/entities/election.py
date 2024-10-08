@@ -9,6 +9,7 @@ from typing import List;
 class Election:
     _id: int;
     _name: str;
+    _noneVotes: int;
     _usersRegistered: List['User'];
     _politicalPositions: List['PoliticalPosition'];
     _politicalCandidates: List['Candidate'];
@@ -31,6 +32,15 @@ class Election:
             raise ValueError("The name can't be empty");
         
         self._name = value;
+        
+    # election none votes 
+    @property
+    def noneVotes(self):
+        return self._noneVotes;
+    
+    @noneVotes.setter
+    def set_none_votes(self, value: int):
+        self._noneVotes = value;
     
     # election political positions gatter and setter
     @property

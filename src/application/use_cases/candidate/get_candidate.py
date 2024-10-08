@@ -7,6 +7,7 @@ sys.path.append(src_path);
 from src.core.entities.candidate import Candidate;
 from src.core.interfaces.repositories.candidate_repository import ICandidateRepository;
 
+
 class GetCandidate:
     def __init__(self, candidate_repository: ICandidateRepository):
         self._candidate_repository = candidate_repository;
