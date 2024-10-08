@@ -19,14 +19,15 @@ USE `election` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `election`.`adm` (
   `adm_id` INT NOT NULL AUTO_INCREMENT,
-  `google_id` VARCHAR(30) UNIQUE,
+  `google_id` VARCHAR(45) NULL,
   `name` VARCHAR(60) NOT NULL,
   `email` VARCHAR(255) NOT NULL,
   `password` VARCHAR(60) NULL,
   `admin_role` VARCHAR(45) NULL,
   `permition_list` TEXT NULL,
   `last_login` DATE NOT NULL,
-  PRIMARY KEY (`adm_id`))
+  PRIMARY KEY (`adm_id`),
+  UNIQUE INDEX `google_id_UNIQUE` (`google_id` ASC) VISIBLE)
 ENGINE = InnoDB;
 
 
@@ -52,7 +53,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `election`.`user` (
   `user_id` INT NOT NULL AUTO_INCREMENT,
-  `google_id` VARCHAR(30) UNIQUE,
+  `google_id` VARCHAR(45) NULL,
   `name` VARCHAR(60) NOT NULL,
   `email` VARCHAR(255) NOT NULL,
   `password` VARCHAR(60) NULL,
@@ -60,6 +61,7 @@ CREATE TABLE IF NOT EXISTS `election`.`user` (
   `election_election_id` INT NOT NULL,
   PRIMARY KEY (`user_id`, `election_election_id`),
   INDEX `fk_user_election1_idx` (`election_election_id` ASC) VISIBLE,
+  UNIQUE INDEX `google_id_UNIQUE` (`google_id` ASC) VISIBLE,
   CONSTRAINT `fk_user_election1`
     FOREIGN KEY (`election_election_id`)
     REFERENCES `election`.`election` (`election_id`)
@@ -113,7 +115,7 @@ CREATE TABLE IF NOT EXISTS `election`.`candidate` (
   `card_number` VARCHAR(45) NOT NULL,
   `candidate_number` INT NOT NULL,
   `amount_votes` INT NOT NULL,
-  `profile_picture` VARCHAR(350) NOT NULL,
+  `profile_picture` VARCHAR(350) NULL,
   `political_party_political_party_id` INT NOT NULL,
   `political_position_political_position_id` INT NOT NULL,
   `election_election_id` INT NOT NULL,
