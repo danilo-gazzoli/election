@@ -4,7 +4,6 @@ from entities.election import Election;
 from typing import List;
 from PIL import Image;
 
-@dataclass
 class PoliticalParty:
     _id: int;
     _name: str;
