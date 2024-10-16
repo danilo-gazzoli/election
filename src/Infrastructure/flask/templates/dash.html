@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&" />
+    <link rel="stylesheet" href="/src/infrastructure/flask/static/dash.css">
+    <!-- Bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+ 
+<body class="h-100 w-100">
+    <div class="container-fluid">
+        <div class="row d-flex h-100">
+            <div class="col-2 h-100">
+                <div class="row d-flex">
+                    <!-- Sidebar-->
+                    <aside class="h-100">
+                        <div class="toggle">
+                            <div class="logo d-flex justify-content-center flex-wrap p-2 m-1">
+                                <img class="d-block w-100"src="/src/infrastructure/flask/static/sesi-logo-13.png">
+                            </div>
+                            <div class="d-flex justify-content-between flex-wrap flex-row py-2 my-2">
+                                <h3>Painel de Adm</h3>
+                               
+                                <button class="close" id="close-btn">
+                                    <span class="material-icons-sharp">
+                                        close
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+ 
+                        <div class="sidebar d-flex flex wrap justify-content-center">
+                            <ul class="nav d-flex flex wrap flex-grow-1 justify-content-center">
+                                <div class="col">
+                                    <li class="nav-item flex-column justify-items-center">
+                                        <a href="#" class="nav-link active d-flex align-items-center">
+                                            <span class="material-icons-sharp me-2">dashboard</span>
+                                            <h3>Dashboard</h3>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link d-flex align-items-center">
+                                            <span class="material-icons-sharp me-2">person_outline</span>
+                                            <h3>Candidatos</h3>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link d-flex align-items-center">
+                                            <span class="material-symbols-sharp me-2">groups</span>
+                                            <h3>Partidos</h3>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link d-flex align-items-center">
+                                            <span class="material-icons-sharp me-2">receipt_long</span>
+                                            <h3>Eleições</h3>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link d-flex align-items-center">
+                                            <span class="material-symbols-sharp me-2">how_to_vote</span>
+                                            <h3>Urnas</h3>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link d-flex align-items-center">
+                                            <i class="fa-solid fa-user-tag"></i>
+                                            <h3>Usuários</h3>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link d-flex align-items-center">
+                                            <span class="material-icons-sharp me-1">insights</span>
+                                            <h3>Votos</h3>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="mt-auto nav-link d-flex align-items-center">
+                                            <span class="material-icons-sharp me-1">
+                                                logout
+                                            </span>
+                                            <h3>Logout</h3>
+                                        </a>
+                                    </li>
+                                </div>
+                            </ul>
+ 
+                            
+                        </div>
+                    </aside>
+                </div>
+            </div>
+ 
+
+            <div class="col p-5">
+                <main>
+                    <div class="row candidates-section d-flex py-2">
+                        <h2>Candidatos</h2>
+                        <div class="candidate-list d-flex justify-content-around flex-wrap flex-row">
+                            <div class="candidate-item justify-content-center">
+                                <img src="/src/infrastructure/flask/static/person_icon.png">
+                                <p class="text-center">Nome</p>
+                                <p class="text-center">Partido</p>
+                            </div>
+                            <div class="candidate-item justify-content-center">
+                                <img src="/src/infrastructure/flask/static/person_icon.png">
+                                <p class="text-center">Nome</p>
+                                <p class="text-center">Partido</p>
+                            </div>
+                            <div class="candidate-item justify-content-center">
+                                <img src="/src/infrastructure/flask/static/person_icon.png">
+                                <p class="text-center">Nome</p>
+                                <p class="text-center">Partido</p>
+                            </div>
+                            <div class="candidate-item justify-content-center">
+                                <img src="/src/infrastructure/flask/static/person_icon.png">
+                                <p class="text-center">Nome</p>
+                                <p class="text-center">Partido</p>
+                            </div>
+                            <div class="candidate-item justify-content-center">
+                                <img src="/src/infrastructure/flask/static/person_icon.png">
+                                <p class="text-center">Nome</p>
+                                <p class="text-center">Partido</p>
+                            </div>
+                        </div>
+                    </div>
+ 
+                    <div class="row party-section d-flex py-2">
+                        <h2>Partidos</h2>
+                        <div class="party-list d-flex justify-content-around flex-wrap flex-row">
+                            <div class="party-item justify-content-center">
+                                <img src="/src/infrastructure/flask/static/person_icon.png">
+                                <p class="text-center">Nome</p>
+                                <p class="text-center">Nº Candidatos:</p>
+                            </div>
+                            <div class="party-item justify-content-center">
+                                <img src="/src/infrastructure/flask/static/person_icon.png">
+                                <p class="text-center">Nome</p>
+                                <p class="text-center">Nº Candidatos:</p>
+                            </div>
+                            <div class="party-item justify-content-center">
+                                <img src="/src/infrastructure/flask/static/person_icon.png">
+                                <p class="text-center">Nome</p>
+                                <p class="text-center">Nº Candidatos:</p>
+                            </div>
+                            <div class="party-item justify-content-center">
+                                <img src="/src/infrastructure/flask/static/person_icon.png">
+                                <p class="text-center">Nome</p>
+                                <p class="text-center">Nº Candidatos:</p>
+                            </div>
+                            <div class="party-item justify-content-center">
+                                <img src="/src/infrastructure/flask/static/person_icon.png">
+                                <p class="text-center">Nome</p>
+                                <p class="text-center">Nº Candidatos:</p>
+                            </div>
+                        </div>
+                    </div>
+ 
+                    <div class="row election-section d-flex py-2">
+                        <h2>Eleições</h2>
+                       
+                        <div class="election-list d-flex justify-content-around flex-wrap">
+                            <div class="card w-20">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Card title</h5>
+                                    <p class="card-text text-center">Name</p>
+                                    <p class="card-text text-center">Id:</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                            <div class="card w-20">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Card title</h5>
+                                    <p class="card-text text-center">Name</p>
+                                    <p class="card-text text-center">Id:</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                            <div class="card w-20">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Card title</h5>
+                                    <p class="card-text text-center">Name</p>
+                                    <p class="card-text text-center">Id:</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                            <div class="card w-20">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Card title</h5>
+                                    <p class="card-text text-center">Name</p>
+                                    <p class="card-text text-center">Id:</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                            <div class="card w-20">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Card title</h5>
+                                    <p class="card-text text-center">Name</p>
+                                    <p class="card-text text-center">Id:</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                            <div class="card w-20">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Card title</h5>
+                                    <p class="card-text text-center">Name</p>
+                                    <p class="card-text text-center">Id:</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+ 
+                    <div class="row d-flex user-section py-2">
+                        <h2>Usuários</h2>
+                        <div class="user-list d-flex justify-content-around flex-wrap flex-row">
+                            <div class="user-item justify-content-center">
+                                <img src="/src/infrastructure/flask/static/person_icon.png">
+                                <p class="text-center">Nome</p>
+                                <p class="text-center">Urna:</p>
+                            </div>
+                            <div class="user-item justify-content-center">
+                                <img src="/src/infrastructure/flask/static/person_icon.png">
+                                <p class="text-center">Nome</p>
+                                <p class="text-center">Urna:</p>
+                            </div>
+                            <div class="user-item justify-content-center">
+                                <img src="/src/infrastructure/flask/static/person_icon.png">
+                                <p class="text-center">Nome</p>
+                                <p class="text-center">Urna:</p>
+                            </div>
+                            <div class="user-item justify-content-center">
+                                <img src="/src/infrastructure/flask/static/person_icon.png">
+                                <p class="text-center">Nome</p>
+                                <p class="text-center">Urna:</p>
+                            </div>
+                            <div class="user-item justify-content-center">
+                                <img src="/src/infrastructure/flask/static/person_icon.png">
+                                <p class="text-center">Nome</p>
+                                <p class="text-center">Urna:</p>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+ 
+    <script src="/src/infrastructure/flask/static/adm-panel.js"></script>
+    <script src="/src/infrastructure/flask/static/adm-panel-orders.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+ 
+</html>
