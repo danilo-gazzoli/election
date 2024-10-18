@@ -7,7 +7,6 @@ sys.path.append(src_path);
 from PIL import Image
 from core.interfaces.repositories.candidate_repository import ICandidateRepository;
 from core.entities.candidate import Candidate;
-from core.entities.political_position import PoliticalPosition;
 from core.entities.political_party import PoliticalParty;
 
 class CreateCandidate:
@@ -27,7 +26,6 @@ class CreateCandidate:
             cardNumber = candidate_data['cardNumber'],
             candidateNumber = candidate_data['candidateNumber'],
             politicalParty = candidate_data['politicalParty'],
-            politicalPosition = candidate_data['politicalPosition'],
             amountVotes= candidate_data['amountVotes'],
             profilePicture = candidate_data['profilePicture']
         );
@@ -85,6 +83,3 @@ class CreateCandidate:
             if not isinstance(political_party, PoliticalParty):
                 raise ValueError("This perm isn't a political party object");
         
-        for political_position in new_adm_political_positions:
-            if not isinstance(political_position, PoliticalPosition):
-                raise ValueError("This perm isn't a political position object");

@@ -1,6 +1,7 @@
 from dataclasses import dataclass;
 from verify_email import verify_email;
 from flask_login import UserMixin;
+from typing import List;
 
 @dataclass
 class User(UserMixin):
@@ -10,6 +11,7 @@ class User(UserMixin):
     _google_id: str = None;
     _password: str = None;
     _isLogged: bool = False;
+    
 
     # user id getter 
     @property
@@ -74,3 +76,4 @@ class User(UserMixin):
             raise ValueError("This value can't be empty");
         
         self._isLogged = value;
+        

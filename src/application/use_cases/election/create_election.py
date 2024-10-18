@@ -8,7 +8,6 @@ from core.interfaces.repositories.election_repository import IElectionRepository
 from core.entities.election import Election
 from src.core.entities.candidate import Candidate
 from src.core.entities.political_party import PoliticalParty
-from src.core.entities.political_position import PoliticalPosition
 from src.core.entities.user import User;
 
 class CreateElection:
@@ -23,8 +22,8 @@ class CreateElection:
         election = Election(
             name = election_data['name'],
             usersRegistered = election_data['usersRegistered'],
-            politicalPositions = election_data['politicalPositions'],
-            politicalCandidates = election_data['politicalCandidates'],
+            mayorsCandidates = election_data['Candidate'],
+            councilorsCandidates = election_data['Candidate'],
             politicalPartys = election_data['politicalPartys']
         );
 
@@ -45,21 +44,21 @@ class CreateElection:
     def verify_object_types(election_data: dict):
         
         new_adm_political_users = election_data['usersRegistered'];
-        new_adm_political_positions = election_data['politicalPositions'];
-        new_adm_political_candidates = election_data['politicalCandidates'];
+        new_adm_mayors_candidates = election_data['mayorsCandidates'];
+        new_adm_councilors_candidates = election_data['councilorsCandidates'];
         new_adm_political_partys = election_data['politicalPartys'];
         
         for user in new_adm_political_users:
             if not isinstance(user, User):
                 raise ValueError("This perm isn't a user object");
             
-        for political_candidate in new_adm_political_candidates:
-            if not isinstance(political_candidate, Candidate):
+        for candidate in new_adm_councilors_candidates:
+            if not isinstance(candidate, Candidate):
                 raise ValueError("This perm isn't a candidate object");
             
-        for political_position in new_adm_political_positions:
-            if not isinstance(political_position, PoliticalPosition):
-                raise ValueError("This perm isn't a political position object");
+        for candidate in new_adm_mayors_candidates:
+            if not isinstance(candidate, Candidate):
+                raise ValueError("This perm isn't a candidate object");
             
         for political_party in new_adm_political_partys:
             

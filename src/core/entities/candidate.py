@@ -1,5 +1,4 @@
 from dataclasses import dataclass;
-from political_position import PoliticalPosition;
 from entities.political_party import PoliticalParty;
 from entities.election import Election;
 from PIL import Image; 
@@ -11,7 +10,6 @@ class Candidate():
     _cardNumber: int;
     _candidateNumber: int;
     _candidade_politicalParty: 'PoliticalParty';
-    _candidade_politicalPosition: 'PoliticalPosition';
     _amountVotes: int;
     _profilePicture: Image;
     
@@ -54,17 +52,7 @@ class Candidate():
                 raise ValueError(f"Candidate number {value} is already use by another candidate");
 
         self._candidateNumber = value;
-        
-    # candidate political position getter and setter
-    @property
-    def politicalPosition(self) -> 'PoliticalPosition':
-        return self._candidade_politicalPosition;
     
-    @politicalPosition.setter
-    def set_candidate_political_position(self, value: 'PoliticalPosition'):
-        if not isinstance(value, PoliticalPosition):
-            raise ValueError("Invalid political position")
-        self._candidade_politicalPosition = value;
     
     # candidate political party getter and setter
     @property
@@ -72,21 +60,10 @@ class Candidate():
         return self._candidade_politicalParty;
             
     @politicalParty.setter
-    def set_candidate_political_party(self, value: 'PoliticalParty', political_position: 'PoliticalPosition'):
-        
-        political_postion_vacancies = PoliticalPosition.vacancies();
-        
+    def set_candidate_political_party(self, value: 'PoliticalParty'):
+                
         if value is None:
             raise ValueError("The political party can't be empty");
-        
-        if (political_postion_vacancies < 2):
-            
-            for candidates in PoliticalPosition.candidatesCompeting():
-                
-                if Candidate.CandidatePoliticalPosition == value:
-                    raise ValueError("This political position don't allows competition between candidates from the same party");
-                
-            return;
         
         self._candidade_politicalParty = value;
         

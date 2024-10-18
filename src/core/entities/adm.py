@@ -1,5 +1,4 @@
 from dataclasses import dataclass;
-from permission import Permission;
 from verify_email import verify_email;
 from user import User;
 from election import Election;
@@ -9,7 +8,6 @@ from typing import List;
 @dataclass
 class Adm(User):
     _adminRole: str;
-    _permitionList: List['Permission'];
     _electionList: List['Election'];
     _lastLogin: datetime;
         
@@ -21,20 +19,6 @@ class Adm(User):
     @role.setter
     def set_role(self, value: str):
         self._adminRole = value;
-        
-        
-    # adm permition list getter and setter
-    @property
-    def permitionList(self):
-        return self._permissionsList;
-    
-    @permitionList.setter
-    def set_permition_list(self, perm_list: List['Permission']):
-        
-        if not all(isinstance(permission, Permission) for permission in perm_list):
-            raise ValueError("All items must be instances of Permission");
-        
-        self._permissionsList = perm_list;
         
     # adm last login getter and setter 
     @property

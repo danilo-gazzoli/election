@@ -6,7 +6,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../.
 from core.interfaces.repositories.candidate_repository import ICandidateRepository;
 from core.entities.candidate import Candidate;
 from sqlalchemy.orm import Session;
-from infrastructure.db.db_config import get_db_session;
+from Infrastructure.db.db_config import get_db_session;
 from typing import Optional, List;
 
 
