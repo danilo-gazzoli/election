@@ -72,6 +72,7 @@
                                             <h3>Eleições</h3>
                                         </a>
                                     </li>
+                                    
                                     <li class="nav-item">
                                         <a href="#" class="nav-link d-flex align-items-center">
                                             <i class="fa-solid fa-user-tag"></i>
@@ -103,127 +104,53 @@
                 <main>
                     <div class="row">
                         <div class="container">
-                            <h1>Gerenciar Eleições</h1>
+                            <h1>Gerenciar Usuários</h1>
                             <!-- Botões de ação -->
                             <div class="text-end">
-                                <button class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#modalElection">Adicionar
-                                    Eleição</button>
+                                <button class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#modalUser">Adicionar Usuário</button>
                                 <button class="btn btn-warning btn-lg">Editar</button>
                                 <button class="btn btn-danger btn-lg">Excluir</button>
                             </div>
                         
-                            <!-- Tabela de Eleições Registradas -->
-                            <h2>Eleições Registradas</h2>
+                            <!-- Tabela de Usuários Registrados -->
+                            <h2>Usuários Registrados</h2>
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Nome da Eleição</th>
-                                        <th>Votos Nulos</th>
-                                        <th>Usuários Registrados</th>
+                                        <th>Nome</th>
+                                        <th>Email</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!-- Inserir eleições aqui -->
+                                    <!-- Inserir usuários aqui -->
                                 </tbody>
                             </table>
                         
                         
-                            <!-- Modal para Adicionar/Editar Eleição -->
-                            <div class="modal fade" id="modalElection" tabindex="-1" aria-labelledby="modalElectionLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-xl">
+                            <!-- Modal para Adicionar/Editar Usuário -->
+                            <div class="modal fade" id="modalUser" tabindex="-1" aria-labelledby="modalUserLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="modalElectionLabel">Adicionar/Editar Eleição</h5>
+                                            <h5 class="modal-title" id="modalUserLabel">Adicionar/Editar Usuário</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
                                             <form>
                                                 <div class="mb-3">
-                                                    <label for="electionName" class="form-label">Nome da Eleição</label>
-                                                    <input type="text" class="form-control" id="electionName"
-                                                        placeholder="Digite o nome da eleição">
+                                                    <label for="userName" class="form-label">ID</label>
+                                                    <input type="text" class="form-control" id="userName" placeholder="ID">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="noneVotes" class="form-label">Votos Nulos</label>
-                                                    <input type="number" class="form-control" id="noneVotes"
-                                                        placeholder="Digite o número de votos nulos">
+                                                    <label for="userName" class="form-label">Nome do Usuário</label>
+                                                    <input type="text" class="form-control" id="userName" placeholder="Digite o nome do usuário">
                                                 </div>
-
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <h4>Usuários Registrados</h4>
-                                                        <table class="table table-striped">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>ID</th>
-                                                                    <th>Nome</th>
-                                                                    <th>e-mail</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <!-- Inserir candidatos a prefeito -->
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
+                                                <div class="mb-3">
+                                                    <label for="userEmail" class="form-label">Email</label>
+                                                    <input type="email" class="form-control" id="userEmail" placeholder="Digite o email do usuário">
                                                 </div>
-                        
-                                                <!-- Tabelas de Prefeitos e Vereadores -->
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <h4>Candidatos a Prefeito</h4>
-                                                        <table class="table table-striped">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>ID</th>
-                                                                    <th>Nome</th>
-                                                                    <th>Partido</th>
-                                                                    <th>Ações</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <!-- Inserir candidatos a prefeito -->
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <h4>Candidatos a Vereador</h4>
-                                                        <table class="table table-striped">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>ID</th>
-                                                                    <th>Nome</th>
-                                                                    <th>Partido</th>
-                                                                    <th>Ações</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                    <!-- Inserir candidatos a vereador -->
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <h4>Partidos Registrados</h4>
-                                                        <table class="table table-striped">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>ID</th>
-                                                                    <th>name</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <!-- Inserir candidatos a prefeito -->
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                        
+                                                
                                             </form>
                                         </div>
                                         <div class="modal-footer">
@@ -234,7 +161,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        
 
                     </div>
                 </main>
