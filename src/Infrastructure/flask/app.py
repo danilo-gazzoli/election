@@ -63,7 +63,7 @@ def logout():
     user_repository.UpdateUser(user);
     logout_user();
     flash('Logout successfully!', 'success');
-    return redirect(url_for('lofi'));
+    return redirect(url_for('lofi')); 
 
 @app.route("/lofi")
 def lofi():
@@ -92,8 +92,28 @@ def register():
     login_user(user);
     flash('User registered and logged in!', 'success');
 
+@app.route("/admin/dashboard", methods=['GET'])
+def section_dashboard():
+    return render_template("adm-dash.html");
+
+@app.route("/admin/candidate")
+def section_candidate():
+    return render_template("candidate-form.html");
+
+@app.route("/admin/election")
+def section_election():
+    return render_template("election-form.html");
+
+@app.route("/admin/party")
+def section_party():
+    return render_template("party-form.html");
+
+@app.route("/admin/users")
+def section_users():
+    return render_template("user-form.html");
+
 @app.route("/")
-def main():
+def section_():
     return render_template("login-register.html");
 
 app.run(debug=True);

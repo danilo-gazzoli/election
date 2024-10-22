@@ -41,32 +41,31 @@
                             <ul class="nav d-flex flex wrap flex-grow-1 justify-content-center">
                                 <div class="col">
                                     <li class="nav-item flex-column justify-items-center">
-                                        <a href="http://127.0.0.1:3000/src/infrastructure/flask/templates/adm-dash.html" class="nav-link d-flex align-items-center">
+                                        <a href="{{ url_for('section_dashboard') }}" class="nav-link active d-flex align-items-center">
                                             <span class="material-icons-sharp me-2">dashboard</span>
                                             <h3>Dashboard</h3>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="http://127.0.0.1:3000/src/infrastructure/flask/templates/candidate-form.html?" class="nav-link d-flex align-items-center">
+                                        <a href="{{ url_for('section_candidate') }}" class="nav-link d-flex align-items-center">
                                             <span class="material-icons-sharp me-2">person_outline</span>
                                             <h3>Candidatos</h3>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link active d-flex align-items-center">
+                                        <a href="{{ url_for('section_party') }}" class="nav-link d-flex align-items-center">
                                             <span class="material-symbols-sharp me-2">groups</span>
                                             <h3>Partidos</h3>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="http://127.0.0.1:3000/src/Infrastructure/flask/templates/election-form.html" class="nav-link d-flex align-items-center">
+                                        <a href="{{ url_for('section_election') }}" class="nav-link d-flex align-items-center">
                                             <span class="material-icons-sharp me-2">receipt_long</span>
                                             <h3>Eleições</h3>
                                         </a>
                                     </li>
-                                    
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link d-flex align-items-center">
+                                        <a href="{{ url_for('section_users') }}" class="nav-link d-flex align-items-center">
                                             <i class="fa-solid fa-user-tag"></i>
                                             <h3>Usuários</h3>
                                         </a>
@@ -77,8 +76,8 @@
                                             <h3>Votos</h3>
                                         </a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="mt-auto nav-link d-flex align-items-center">
+                                    <li class="nav-item"> 
+                                        <a href="{{ url_for('/logout') }}" class="mt-auto nav-link d-flex align-items-center">
                                             <span class="material-icons-sharp me-1">
                                                 logout
                                             </span>
@@ -87,6 +86,7 @@
                                     </li>
                                 </div>
                             </ul>
+ 
                         </div>
                     </aside>
                 </div>
