@@ -11,7 +11,7 @@ from flask_login import LoginManager, login_user, logout_user, login_required, c
 from flask_dance.contrib.google import make_google_blueprint, google;
 from config.settings import *;
 
-app = Flask(__name__, static_url_path='/src/Infrastructure/services/flask/static');
+app = Flask(__name__, static_url_path='/src/infrastructure/services/flask/static');
 
 app.secret_key = SECRET_KEY;
 
