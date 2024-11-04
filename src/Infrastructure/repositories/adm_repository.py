@@ -13,7 +13,7 @@ from typing import Optional, List;
 class CandidateRepository(IAdmRepository):
     
     def __init__(self):
-        self._db_session = get_db_session;
+        self._db_session = lambda: next(get_db_session);
     
     # create
     def CreateAdm(self, adm: 'Adm') -> None:

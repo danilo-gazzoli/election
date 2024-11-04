@@ -13,7 +13,7 @@ from typing import Optional, List;
 class ElectionRepository(IElectionRepository):
     
     def __init__(self):
-        self._db_session = get_db_session;
+        self._db_session = lambda: next(get_db_session);
         
     # create
     def CreateElection(self, election: 'Election') -> None:

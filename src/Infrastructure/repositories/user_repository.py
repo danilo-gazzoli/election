@@ -1,6 +1,6 @@
 import sys;
-import os
 
+import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../')));
 
 from src.core.interfaces.repositories.user_repository import IUserRepository;
@@ -12,7 +12,7 @@ from typing import Optional, List;
 class UserRepository(IUserRepository):
     
     def __init__(self) -> None:
-        self._db_session = get_db_session;
+        self._db_session = lambda: next(get_db_session());
         
     # create
     def CreateUser(self, user: 'User'):

@@ -11,7 +11,7 @@ from typing import Optional, List;
 class PoliticalPartyRepository(IPoliticalPartyRepository):
     
     def __init__(self) -> None:
-        self._db_session = get_db_session;
+        self._db_session = lambda: next(get_db_session);
         
     # create
     def CreatePoliticalParty(self, politicalParty: 'PoliticalParty') -> None:

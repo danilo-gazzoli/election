@@ -6,14 +6,14 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../.
 from core.interfaces.repositories.candidate_repository import ICandidateRepository;
 from core.entities.candidate import Candidate;
 from sqlalchemy.orm import Session;
-from Infrastructure.db.db_config import get_db_session;
+from infrastructure.db.db_config import get_db_session;
 from typing import Optional, List;
 
 
 class CandidateRepository(ICandidateRepository):
     
     def __init__(self):
-        self._db_session = get_db_session;
+        self._db_session = lambda: next(get_db_session);
     
     # create
     def CreateCandidate(self, candidate: 'Candidate') -> None:
