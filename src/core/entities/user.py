@@ -1,10 +1,9 @@
 from dataclasses import dataclass;
 from verify_email import verify_email;
-from flask_login import UserMixin;
 from typing import List;
 
 @dataclass
-class User(UserMixin):
+class User():
     _id: int;
     _name: str;
     _email: str;

@@ -4,12 +4,14 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../')));
 
 from src.infrastructure.repositories.user_repository import UserRepository;
+from src.adapters.user_adapter import UserAdapter;
 from src.application.use_cases.user_auth_with_google import AuthenticateWithGoogle;
 from src.core.entities.user import User;
 from flask import Flask, render_template, url_for, redirect, flash, request;
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user;
 from flask_dance.contrib.google import make_google_blueprint, google;
 from config.settings import *;
+from werkzeug.security import generate_password_hash, check_password_hash;
 
 app = Flask(__name__, static_url_path='/src/infrastructure/services/flask/static');
 
@@ -24,72 +26,76 @@ auth_user_use_case = AuthenticateWithGoogle(user_repository);
 
 @login_manager.user_loader
 def load_user(user_id):
-    return user_repository.GetUserbyID(int(user_id));
+    user = user_repository.GetUserbyID(int(user_id));
+    if user:
+        return UserAdapter(user);
+    return None;
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        email = request.form.get("email")
-        password = request.form.get("password")
+        email = request.form.get("email");
+        password = request.form.get("password");
 
-        user = user_repository.GetUserbyFilter(email=email);
+        user_list = user_repository.GetUserbyFilter(email=email);
         
-        if not user:
+        if not user_list:
             flash("Invalid email or password.", "danger");
             return redirect(url_for("login"));
 
-        user = user[0];
+        user = user_list[0];
 
-        if user.password == password:
-            login_user(user);
+        if check_password_hash(user.password, password):
+            user.is_logged = True;
+            user_repository.UpdateUser(user);
+            
+            login_user(UserAdapter(user));
             flash("Login successfully!", "success");
             return redirect(url_for("section_dashboard"));
         else:
             flash("Invalid email or password.", "danger");
             return redirect(url_for("login"));
-    return redirect(url_for('/'));
+    return render_template("login-register.html");
     
-
 @app.route("/logout")
 def logout():
-    user = current_user;
-    user.set_is_logged(False);
+    user = current_user.user;
+    user.is_logged = False;
     user_repository.UpdateUser(user);
     logout_user();
     flash('Logout successfully!', 'success');
-    return redirect(url_for('/')); 
+    return redirect(url_for('login'));
+
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
-        name = request.form.get("name")
-        email = request.form.get("email")
-        password = request.form.get("password")
+        name = request.form.get("name");
+        email = request.form.get("email");
+        password = request.form.get("password");
 
-        # Verifica se o usuário já existe
-        existing_user = user_repository.GetUserbyFilter(email=email)
+        existing_user = user_repository.GetUserbyFilter(email=email);
         if existing_user:
-            flash("Email already registered.", "danger")
-            return redirect(url_for("register"))
+            flash("Email already registered.", "danger");
+            return redirect(url_for("register"));
+        
+        password_hash = generate_password_hash(password);
 
-        # Cria o novo usuário
         new_user = User(
-            _id=None,  # ID será gerado automaticamente
+            _id=None,  
             _name=name,
             _email=email,
-            _password=password,  # Idealmente, criptografe a senha antes de armazenar
+            _password=password_hash,  # Idealmente, criptografe a senha antes de armazenar
             _is_logged=False
-        )
+        );
         
-        # Salva o usuário no banco de dados
-        user_repository.CreateUser(new_user)
+        user_repository.CreateUser(new_user);
         
-        # Realiza o login automático após o registro
-        login_user(new_user)
-        flash("Registration successful! You are now logged in.", "success")
-        return redirect(url_for("section_dashboard"))
+        login_user(new_user);
+        flash("Registration successful! You are now logged in.", "success");
+        return redirect(url_for("/admin/dashboard"));
 
-    return render_template("login-register.html")
+    return render_template("login-register.html");
 
 @app.route("/admin/dashboard", methods=['GET'])
 def section_dashboard():
